@@ -1,15 +1,22 @@
 using UnityEditor;
-using UnityEngine.UIElements;
 
-[CustomEditor(typeof(Max.Generetion.MapGeneretion))]
-public class MapEditor : Editor
+namespace Max.Generetion
 {
-    [System.Obsolete]
-    public override void OnInspectorGUI()
+    [CustomEditor(typeof(Max.Generetion.ShuffleMapGeneretion))]
+    public class MapEditor : Editor
     {
-        base.OnInspectorGUI();
+    
+        [System.Obsolete]
+        public override void OnInspectorGUI()
+        {
+            base.OnInspectorGUI();
 
-        Max.Generetion.MapGeneretion map = target as Max.Generetion.MapGeneretion;
-        map.GeneretMap();
+            Max.Generetion.ShuffleMapGeneretion map = target as Max.Generetion.ShuffleMapGeneretion;
+         if(map._genereteInInspector)   map.GeneretMap();
+            else
+            {
+                map.ClearEditor();
+            }
+        }
     }
 }
