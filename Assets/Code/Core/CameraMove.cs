@@ -21,7 +21,7 @@ namespace Max.Core
         // Update is called once per frame
         void LateUpdate()
         {
-            Debug.Log(Vector3.Distance(transform.position, _player.transform.position));
+          //  Debug.Log(Vector3.Distance(transform.position, _player.transform.position));
           
             if (Vector3.Distance(transform.position, _player.transform.position) > V)
             {
