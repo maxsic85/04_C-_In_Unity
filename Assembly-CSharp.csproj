@@ -76,6 +76,7 @@
     <Compile Include="Assets\Code\Core\Player.cs" />
     <Compile Include="Assets\Code\Core\KeyController.cs" />
     <Compile Include="Assets\Code\Meta\Boost.cs" />
+    <Compile Include="Assets\Code\Core\CameraMove.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
