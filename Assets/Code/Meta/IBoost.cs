@@ -5,8 +5,8 @@ using UnityEngine;
 
 namespace Max.Meta
 {
-    public interface IBoost:IDisposable
+    public interface IBoost : IDisposable
     {
-        void UseBoost();
+        event System.Action Boost;
     }
 }

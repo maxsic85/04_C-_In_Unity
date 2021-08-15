@@ -8,14 +8,18 @@ using UnityEngine.UIElements;
 namespace Max.Core
 {
 
-    public  sealed partial class Player : MonoBehaviour
+    public sealed partial class Player : MonoBehaviour, IDisposable
     {
         public float _speed = 2f;
         public LayerMask _mask;
 
+      
+
         Imove _move;
-        private void Start()
-        {      
+
+
+        private void Awake()
+        {
             _move = new KeyController(gameObject.transform, _speed, _mask);
         }
 
@@ -23,6 +27,7 @@ namespace Max.Core
         {
             _move.Move();
         }
-    }
 
+     
+    }
 }

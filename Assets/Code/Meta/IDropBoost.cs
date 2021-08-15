@@ -6,6 +6,6 @@ namespace Max.Meta
 {
     public interface IDropBoost : IBoost
     {
-        event System.Action<bool> OnDropBoost;
+        void GeneretionBoost();
     }
 }

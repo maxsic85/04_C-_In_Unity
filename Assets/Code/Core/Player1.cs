@@ -6,13 +6,28 @@ namespace Max.Core
 
     public sealed partial class Player : MonoBehaviour
     {
-        // Start is called before the first frame update
-      
+        testEvents _te;
+
+
+        private void Start()
+        {
+            _te = FindObjectOfType<testEvents>();
+            _te.TestEvent += UseBonus;
+        }
+        private void UseBonus()
+        {
+            Debug.Log("w");
+            _te.Tester();
+        }
+        public void Dispose()
+        {
+            _te.TestEvent -= UseBonus;
+        }
 
         // Update is called once per frame
         void Update()
         {
-            Debug.Log("dfsdfsdf");
+          
         }
     }
 }
