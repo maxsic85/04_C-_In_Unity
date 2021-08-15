@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{434E3D8E-2ABB-300B-A573-ACDC95FA0F1B}</ProjectGuid>
+    <ProjectGuid>{B9FDD979-23E0-1EA8-D885-BE36287D9F67}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -59,6 +59,7 @@
     <Compile Include="Assets\Code\Meta\IBoost.cs" />
     <Compile Include="Assets\Code\Generetion\Interfaces\IShuffleGeneretion.cs" />
     <Compile Include="Assets\Code\Generetion\Interfaces\IMapGeneretion.cs" />
+    <Compile Include="Assets\Code\Core\Player1.cs" />
     <Compile Include="Assets\Code\Core\Interfaces\IKeybordMove.cs" />
     <Compile Include="Assets\Code\Core\Enemy.cs" />
     <Compile Include="Assets\Code\Core\Interfaces\Imove.cs" />
@@ -69,13 +70,12 @@
     <Compile Include="Assets\Code\Core\Interfaces\IDrawSectorVisibility.cs" />
     <Compile Include="Assets\Code\Generetion\Interfaces\IEnemyGeneretion.cs" />
     <Compile Include="Assets\Code\Generetion\ShuffleMapGeneretion.cs" />
+    <Compile Include="Assets\Code\Generetion\Wall.cs" />
     <Compile Include="Assets\Code\Generetion\MapGenerator.cs" />
     <Compile Include="Assets\Code\Generetion\EnemyGeneretion.cs" />
     <Compile Include="Assets\Code\Core\Player.cs" />
-    <Compile Include="Assets\Code\Meta\Boost.cs" />
     <Compile Include="Assets\Code\Core\KeyController.cs" />
-    <Compile Include="Assets\Code\Core\Player1.cs" />
-    <Compile Include="Assets\Code\Generetion\Wall.cs" />
+    <Compile Include="Assets\Code\Meta\Boost.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
