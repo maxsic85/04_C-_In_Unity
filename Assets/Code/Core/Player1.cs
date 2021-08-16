@@ -1,33 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
+using System.Data;
 using UnityEngine;
 namespace Max.Core
 {
 
     public sealed partial class Player : MonoBehaviour
     {
-        testEvents _te;
-
-
+        Max.Meta.Boost _dropBoost;
         private void Start()
         {
-            _te = FindObjectOfType<testEvents>();
-            _te.TestEvent += UseBonus;
+            _dropBoost = FindObjectOfType<Max.Meta.Boost>();
+            if (_dropBoost == null) throw new DataException("_dropBoost not found");
+            _dropBoost._boostEvent += UseBonus;
         }
         private void UseBonus()
         {
-            Debug.Log("w");
-            _te.Tester();
+            _dropBoost.UseBonus();
         }
         public void Dispose()
         {
-            _te.TestEvent -= UseBonus;
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-          
+            _dropBoost._boostEvent -= UseBonus;
         }
     }
 }
