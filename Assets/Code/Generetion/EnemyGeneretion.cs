@@ -3,21 +3,17 @@ namespace Max.Generetion
 {
     public class EnemyGeneretion : MonoBehaviour,IEnemyGeneretion
     {
+        ShuffleMapGeneretion _mp ;
         public void CreateEnemy()
         {
-            throw new System.NotImplementedException();
+            Transform _tile = _mp.GetRandomOpenTile();
+            GameObject _boost = (GameObject)Instantiate(Resources.Load("Boost"), _tile.position, Quaternion.identity);
         }
 
-        // Start is called before the first frame update
-        void Start()
+        private void Start()
         {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
+            _mp = FindObjectOfType<ShuffleMapGeneretion>();
+            CreateEnemy();
         }
     }
 }

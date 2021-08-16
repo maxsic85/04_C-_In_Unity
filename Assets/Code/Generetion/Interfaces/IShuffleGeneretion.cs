@@ -6,6 +6,6 @@ namespace Max.Generetion
 {
     public interface IShuffleGeneretion : IMapGeneretion
     {
-      public   void Shuffle();
+     
     }
 }

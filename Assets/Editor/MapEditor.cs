@@ -15,7 +15,7 @@ namespace Max.Generetion
          if(map._genereteInInspector)   map.GeneretMap();
             else
             {
-                map.ClearEditor();
+               map.ClearEditor();
             }
         }
     }

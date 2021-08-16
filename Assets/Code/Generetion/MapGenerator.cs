@@ -8,11 +8,12 @@ namespace Max.Generetion
     {
         public GameObject Generator;
         // Start is called before the first frame update
-        void Start()
+        void Awake()
         {
             // IMapGeneretion map = new ShuffleMapGeneretion();
             //map.GeneretMap();
             Generator.GetComponent<IMapGeneretion>().GeneretMap();
+           
         }
 
     }
