@@ -65,6 +65,7 @@
     <Compile Include="Assets\Code\Core\Enemy.cs" />
     <Compile Include="Assets\Code\Core\Interfaces\Imove.cs" />
     <Compile Include="Assets\Code\Core\Interfaces\IPlayerMove.cs" />
+    <Compile Include="Assets\Code\Meta\DisplayData.cs" />
     <Compile Include="Assets\Code\Core\Interfaces\IDamageble.cs" />
     <Compile Include="Assets\Code\Meta\IDropBoost.cs" />
     <Compile Include="Assets\Code\Generetion\ShuffleArray.cs" />
@@ -78,7 +79,13 @@
     <Compile Include="Assets\Code\Core\Player.cs" />
     <Compile Include="Assets\Code\Core\KeyController.cs" />
     <Compile Include="Assets\Code\Meta\Boost.cs" />
-    <Compile Include="Assets\Code\Meta\DisplayData.cs" />
+    <Compile Include="Assets\Code\MVC\Controllers\GameStarter.cs" />
+    <Compile Include="Assets\Code\MVC\Controllers\Controllers.cs" />
+    <Compile Include="Assets\Code\MVC\Controllers\GameInitialisation.cs" />
+    <Compile Include="Assets\Code\MVC\Interfaces\IController.cs" />
+    <Compile Include="Assets\Code\MVC\Interfaces\IExecute.cs" />
+    <Compile Include="Assets\Code\MVC\Interfaces\IInitialisation.cs" />
+    <Compile Include="Assets\Code\MVC\Controllers\TestLogController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

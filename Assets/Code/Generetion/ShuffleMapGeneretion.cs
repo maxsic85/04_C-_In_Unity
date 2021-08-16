@@ -20,7 +20,7 @@ namespace Max.Generetion
         public bool _genereteInInspector;
         Map _currentMap;
         Transform[,] _tileMap;
-     
+        public Vector3 _mapStart;
         public void GeneretMap()
         {
             _currentMap = _maps[_mapIndex];
@@ -28,7 +28,7 @@ namespace Max.Generetion
             _tileMap = new Transform[_currentMap._mapSize.x, _currentMap._mapSize.y];
             _freeCoord = _allTileCoords;
             _map = new List<GameObject>();
-
+            _mapStart = CoordToPosition(0, 0);
             //Generete Coords
             _allTileCoords = new List<Coord>();
             for (int x = 0; x < _currentMap._mapSize.x; x++)
@@ -39,7 +39,7 @@ namespace Max.Generetion
                 }
             }
             //SHUFFLE
-            _shuffledCoords = new Queue<Coord>(ShuffleArray.Shuffle(_allTileCoords.ToArray(), _currentMap._seed));
+            Shufle();
 
             //Create holder map
             string _holderName = "Map";
@@ -72,7 +72,7 @@ namespace Max.Generetion
                 _obstacleMap[_randomCoord.x, _randomCoord.y] = true;
                 _currentObstacleCount++;
 
-                if (_randomCoord != _currentMap._mapCenter && MapIsFullAccesible(_obstacleMap, _currentObstacleCount))
+                if (_randomCoord != _currentMap._mapCenter && _randomCoord != _currentMap._mapStart && MapIsFullAccesible(_obstacleMap, _currentObstacleCount))
                 {
                     Vector3 _obtaclePosition = CoordToPosition(_randomCoord.x, _randomCoord.y);
                     //
@@ -92,7 +92,12 @@ namespace Max.Generetion
             _freeShuffledCoords = new Queue<Coord>(ShuffleArray.Shuffle(_allFreeCoord.ToArray(), _currentMap._seed));
             Debug.Log(_freeCoord.Count);
         }
-     
+
+        public void Shufle()
+        {
+            _shuffledCoords = new Queue<Coord>(ShuffleArray.Shuffle(_allTileCoords.ToArray(), _currentMap._seed));
+        }
+
         //
         bool MapIsFullAccesible(bool[,] obstacleMap, int currentObstacleCnt)
         {
@@ -158,9 +163,6 @@ namespace Max.Generetion
                 DestroyImmediate(item);
             }
         }
-
-
-
     }
     [System.Serializable]
     public class Map
@@ -175,6 +177,11 @@ namespace Max.Generetion
         public Coord _mapCenter
         {
             get => new Coord(_mapSize.x / 2, _mapSize.y / 2);
+        }
+
+        public Coord _mapStart
+        {
+            get => new Coord(0,0);
         }
 
     }

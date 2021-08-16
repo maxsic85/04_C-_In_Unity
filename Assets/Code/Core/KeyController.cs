@@ -23,7 +23,7 @@ namespace Max.Core
         private Vector3 _moveVector;
         LayerMask _mask;
         RaycastHit _hit;
-
+        RaycastHit _hitDown;
         public KeyController(Transform tr, float speed, LayerMask mask)
         {
             this._tr = tr;
@@ -54,13 +54,22 @@ namespace Max.Core
             Physics.Raycast(_tr.position, _tr.forward, out _hit, _MaxDistance, _mask);
             return (_hit.collider != null) ? true : false;
         }
+
+        //private bool CheckFall()
+        //{
+
+        //    Debug.DrawRay(_tr.position, -_tr.up, Color.blue, 0.5f);
+        //    Physics.Raycast(_tr.position,-_tr.up, out _hitDown, _MaxDistance);
+        //    Debug.Log(_hitDown.collider.name);
+        //    return (_hitDown.collider != null) ? true : false;
+        //}
         public void Move()
         {
             HandleInput();
 
             _tr.Rotate(Vector3.up, Angle360(_tr.forward, _moveVector, _tr.right));
 
-            if (!CheckWall())
+            if (!CheckWall() )
             {
                 _tr.Translate(
                Moves() * _tr.forward * _speed * Time.fixedDeltaTime,
