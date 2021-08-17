@@ -20,7 +20,7 @@ namespace Max.Generetion
         public bool _genereteInInspector;
         Map _currentMap;
         Transform[,] _tileMap;
-        public Vector3 _mapStart;
+        public static Vector3 _mapStart { get; private set; }
         public void GeneretMap()
         {
             _currentMap = _maps[_mapIndex];

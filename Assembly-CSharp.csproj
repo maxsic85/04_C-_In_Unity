@@ -56,11 +56,13 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Code\Core\CameraMove.cs" />
+    <Compile Include="Assets\Code\MVC\Controllers\GameStarter.cs" />
     <Compile Include="Assets\Code\Meta\IBoost.cs" />
     <Compile Include="Assets\Code\Generetion\Interfaces\IShuffleGeneretion.cs" />
     <Compile Include="Assets\Code\Generetion\Interfaces\IMapGeneretion.cs" />
     <Compile Include="Assets\Code\Core\Player1.cs" />
+    <Compile Include="Assets\Code\MVC\Interfaces\IInitialisation.cs" />
+    <Compile Include="Assets\Code\MVC\Interfaces\IExecute.cs" />
     <Compile Include="Assets\Code\Core\Interfaces\IKeybordMove.cs" />
     <Compile Include="Assets\Code\Core\Enemy.cs" />
     <Compile Include="Assets\Code\Core\Interfaces\Imove.cs" />
@@ -73,19 +75,21 @@
     <Compile Include="Assets\Code\Generetion\Interfaces\IEnemyGeneretion.cs" />
     <Compile Include="Assets\Code\Generetion\ShuffleMapGeneretion.cs" />
     <Compile Include="Assets\Code\Meta\DisplayEvvents.cs" />
+    <Compile Include="Assets\Code\MVC\Interfaces\IController.cs" />
     <Compile Include="Assets\Code\Generetion\Wall.cs" />
     <Compile Include="Assets\Code\Generetion\MapGenerator.cs" />
+    <Compile Include="Assets\Code\MVC\Controllers\TestLogController.cs" />
     <Compile Include="Assets\Code\Generetion\EnemyGeneretion.cs" />
+    <Compile Include="Assets\Code\MVC\Controllers\Controllers.cs" />
+    <Compile Include="Assets\Code\MVC\Controllers\GameInitialisation.cs" />
     <Compile Include="Assets\Code\Core\Player.cs" />
     <Compile Include="Assets\Code\Core\KeyController.cs" />
     <Compile Include="Assets\Code\Meta\Boost.cs" />
-    <Compile Include="Assets\Code\MVC\Controllers\GameStarter.cs" />
-    <Compile Include="Assets\Code\MVC\Controllers\Controllers.cs" />
-    <Compile Include="Assets\Code\MVC\Controllers\GameInitialisation.cs" />
-    <Compile Include="Assets\Code\MVC\Interfaces\IController.cs" />
-    <Compile Include="Assets\Code\MVC\Interfaces\IExecute.cs" />
-    <Compile Include="Assets\Code\MVC\Interfaces\IInitialisation.cs" />
-    <Compile Include="Assets\Code\MVC\Controllers\TestLogController.cs" />
+    <Compile Include="Assets\Code\MVC\Controllers\CameraContrpller.cs" />
+    <Compile Include="Assets\Code\MVC\Player\IPlayerFactory.cs" />
+    <Compile Include="Assets\Code\MVC\Player\PlayerFactory.cs" />
+    <Compile Include="Assets\Code\MVC\Data\PlayerData.cs" />
+    <Compile Include="Assets\Code\MVC\Controllers\PlayerInitialisation.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
