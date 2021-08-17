@@ -81,15 +81,23 @@
     <Compile Include="Assets\Code\MVC\Controllers\TestLogController.cs" />
     <Compile Include="Assets\Code\Generetion\EnemyGeneretion.cs" />
     <Compile Include="Assets\Code\MVC\Controllers\Controllers.cs" />
+    <Compile Include="Assets\Code\MVC\Controllers\CameraContrpller.cs" />
+    <Compile Include="Assets\Code\MVC\Player\PlayerFactory.cs" />
     <Compile Include="Assets\Code\MVC\Controllers\GameInitialisation.cs" />
     <Compile Include="Assets\Code\Core\Player.cs" />
-    <Compile Include="Assets\Code\Core\KeyController.cs" />
-    <Compile Include="Assets\Code\Meta\Boost.cs" />
-    <Compile Include="Assets\Code\MVC\Controllers\CameraContrpller.cs" />
-    <Compile Include="Assets\Code\MVC\Player\IPlayerFactory.cs" />
-    <Compile Include="Assets\Code\MVC\Player\PlayerFactory.cs" />
     <Compile Include="Assets\Code\MVC\Data\PlayerData.cs" />
     <Compile Include="Assets\Code\MVC\Controllers\PlayerInitialisation.cs" />
+    <Compile Include="Assets\Code\Core\KeyController.cs" />
+    <Compile Include="Assets\Code\MVC\Player\IPlayerFactory.cs" />
+    <Compile Include="Assets\Code\Meta\Boost.cs" />
+    <Compile Include="Assets\Code\MVC\Controllers\EnemyInitialisation.cs" />
+    <Compile Include="Assets\Code\MVC\Enemies\IEnemyFactory.cs" />
+    <Compile Include="Assets\Code\MVC\Enemies\EnemyFactory.cs" />
+    <Compile Include="Assets\Code\MVC\Data\EnemyData.cs" />
+    <Compile Include="Assets\Code\MVC\Data\BoostData.cs" />
+    <Compile Include="Assets\Code\MVC\Controllers\BoostInitialisation.cs" />
+    <Compile Include="Assets\Code\MVC\Boost\IBoostFactory.cs" />
+    <Compile Include="Assets\Code\MVC\Boost\BoostFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

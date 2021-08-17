@@ -14,12 +14,6 @@ public sealed class PlayerFactory : IPlayerFactory
 
     public GameObject CreatePlayer()
     {
-        //return new GameObject (_playerData.Name).
-        //    AddSprite(_playerData.Sprite).AddCircleCollider2D().
-        //    AddCircleCollider2D().AddTrailRenderer().transform;
-
-      
-
         var a = GameObject.Instantiate(Resources.Load(_playerData._path), _position, Quaternion.identity);
         return a as GameObject;
     }
