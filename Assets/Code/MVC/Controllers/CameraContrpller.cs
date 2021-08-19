@@ -6,7 +6,8 @@ public class CameraContrpller : IExecute
 {
 
     private const float smooth = 5.0f;
-    private  Vector3 offset = new Vector3(0, 2, -5);
+    [SerializeField]
+    private  Vector3 offset = new Vector3(0, 2, -0);
     private Transform _player;
     private Transform _camera;
     private const float V = 6f;

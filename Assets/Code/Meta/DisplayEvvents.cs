@@ -19,6 +19,7 @@ namespace Max.Meta
             _dropBoost = FindObjectOfType<Max.Meta.Boost>();
             _dropBoost._boostEvent += ChangeColor;
             _dropBoost._boostEvent += ShakeCamera;
+         Debug.Log("не работает экшн если на сцене более 1 обьекта, отрабатывает только 1");
         }
 
         public IEnumerator ChangeColorNumerator()

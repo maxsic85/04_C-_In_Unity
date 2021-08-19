@@ -5,17 +5,22 @@ using UnityEngine;
 public sealed class EnemyFactory : IEnemyFactory
 {
     private readonly EnemyData _enemyData;
-    Vector3 _position;
+    Transform[] _position;
 
-    public EnemyFactory(EnemyData enemyData, Vector3 position)
+    public EnemyFactory(EnemyData enemyData, Transform[] position)
     {
         _enemyData = enemyData;
         _position = position;
     }
 
-    public GameObject CreateEnemy()
+    public GameObject[] CreateEnemy()
     {
-        var a = GameObject.Instantiate(Resources.Load(_enemyData._path), _position, Quaternion.identity);
-        return a as GameObject;
+        GameObject[] _go =new GameObject[_position.Length];
+        for (int i = 0; i < _position.Length; i++)
+        {
+            _go[i] = (GameObject)GameObject.Instantiate(Resources.Load(_enemyData._path), _position[i].position, Quaternion.identity);
+           
+        }
+        return _go;
     }
 }

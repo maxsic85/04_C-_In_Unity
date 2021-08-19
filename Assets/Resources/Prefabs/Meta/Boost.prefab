@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7052697601968032780}
   - component: {fileID: 7052697601968032781}
   m_Layer: 0
-  m_Name: DropingBonus
+  m_Name: Boost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -125,3 +125,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7d00175f15a25649b96c5532576de67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _boost: 1

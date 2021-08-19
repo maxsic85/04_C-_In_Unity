@@ -6,17 +6,19 @@ namespace Max.Meta
     public enum BoostType
     {
         ADDSPEED = 1,
-        ADDHEALTH = 2
+        ADDHEALTH = 2,
+        ADDPOWER=3
     }
 
-    public class Boost : MonoBehaviour, IDropBoost
+    public sealed class Boost : MonoBehaviour
     {
+        [SerializeField]
         BoostType _boost = new BoostType();
         public event Action _boostEvent;
 
         void Start()
         {
-            _boost = BoostType.ADDHEALTH;
+            _boost = (BoostType)Random.RandomRange(1, 3);
         }
 
         public void GeneretionBoost()
@@ -33,6 +35,9 @@ namespace Max.Meta
                 case BoostType.ADDHEALTH:
                     Debug.Log("use addhealth");
                     break;
+                case BoostType.ADDPOWER:
+                    Debug.Log("use power");
+                    break;
                 default:
                     break;
             }
@@ -42,21 +47,21 @@ namespace Max.Meta
         {
             if (other.gameObject.GetComponent<Core.Player>() != null)
             {
-                var addComponent = this;
-                addComponent._boostEvent += () =>
-                {
-                    Debug.Log(other.gameObject);
-                };
+              //  var addComponent = gameObject.GetComponent<Boost>();
+                //addComponent._boostEvent += () =>
+                //{
+                //    Debug.Log(other.gameObject);
+                //};
                 var _de = FindObjectOfType<DisplayEvvents>();
                 if (_de == null) throw new System.Data.DataException("DisplayEvvents not found");
-                _de.Init(addComponent);
+                _de.Init(transform.gameObject.GetComponent<Boost>());
 
-                _boostEvent?.Invoke();
+            this._boostEvent?.Invoke();
             }
         }
         public void Dispose()
         {
-
+           
         }
     }
 }

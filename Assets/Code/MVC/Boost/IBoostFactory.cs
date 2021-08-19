@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IBoostFactory 
 {
-    GameObject CreateBoost();
+    GameObject[] CreateBoost();
 }
