@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,7 +20,7 @@ public class BoostFactory : IBoostFactory
         for (int i = 0; i < _position.Length; i++)
         {
             _go[i] = (GameObject)GameObject.Instantiate(Resources.Load(_boostData._path), _position[i].position, Quaternion.identity);
-          //  _go[i].SetActive(false);
+           // _go[i].AddComponent<Max.Meta.Boost>();
         }
         return _go;
     }

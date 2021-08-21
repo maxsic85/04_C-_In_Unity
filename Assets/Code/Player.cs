@@ -8,8 +8,12 @@ using UnityEngine.UIElements;
 namespace Max.Core
 {
 
-    public sealed partial class Player : MonoBehaviour
+    public sealed partial class Player : MonoBehaviour, IDamageble
     {
         //Just MArker
+        public void GetFamage()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

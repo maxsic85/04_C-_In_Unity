@@ -55,10 +55,10 @@ namespace Max.Core
             return (_hit.collider != null) ? true : false;
         }
 
-        public void Move()
+        public void Move(Vector3 _transform)
         {
             GetInput();
-
+            _transform = _moveVector;
             _tr.Rotate(Vector3.up, Angle360(_tr.forward, _moveVector, _tr.right));
 
             if (!CheckWall() )

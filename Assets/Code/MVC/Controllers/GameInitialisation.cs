@@ -12,12 +12,13 @@ public sealed class GameInitialisation
     public GameInitialisation(Controllers _controllers)
     {
         PlayerData _dataPlayer = new PlayerData("Prefabs/Core/Player", 1, 1, 1, LayerMask.GetMask("Wall"));
-        EnemyData _dataEnemy = new EnemyData("Prefabs/Core/Enemy", 1, 1, 1);
+        EnemyData _dataEnemy = new EnemyData("Prefabs/Core/Enemy", 1, 1, 1, (GameObject)Resources.Load("Prefabs/Core/Enemy"));
         BoostData _boostData = new BoostData("Prefabs/Meta/Boost", 1, BoostType.GOOD);
 
+
         _levelGenerator = GameObject.FindObjectOfType<ShuffleMapGeneretion>();
-        Transform[] _enemyPosition = { _levelGenerator.GetRandomOpenTile() , _levelGenerator.GetRandomOpenTile() , _levelGenerator.GetRandomOpenTile() };
-        Transform[] _boostPosition = { _levelGenerator.GetRandomOpenTile() };
+        Transform _enemyPosition =  _levelGenerator.GetRandomOpenTile();
+        Transform[] _boostPosition = { _levelGenerator.GetRandomOpenTile() };  //œ–» √≈Õ≈–¿÷»» > 1 ﬁÕ»“¿ —Œ¡€“»≈  Œ“–¿¡¿“€¬¿≈“ “ŒÀ‹ Œ Õ¿ ŒƒÕŒÃ
 
 
         var playerFactory = new PlayerFactory(_dataPlayer, ShuffleMapGeneretion._mapStart + c_offset);
@@ -32,9 +33,12 @@ public sealed class GameInitialisation
         var _camera = Camera.main.transform;
         var _player = GameObject.FindObjectOfType<Player>().transform;
 
+
         _controllers.Add(new TestLogController());
         _controllers.Add(new CameraContrpller(_player,_camera));
         _controllers.Add(new PlayerController(_player,_dataPlayer._baseSpeed,_dataPlayer._mask));
+        _controllers.Add(new EnemyMoveController(enemyInitialization.GetMoveEnemies(), _player.gameObject.transform));
+        _controllers.Add(new DamageController(10, _player.gameObject));
 
     }
 }

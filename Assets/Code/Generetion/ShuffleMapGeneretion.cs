@@ -17,7 +17,7 @@ namespace Max.Generetion
         Queue<Coord> _freeShuffledCoords;
         List<Coord> _freeCoord;
         List<GameObject> _map;
-        public bool _genereteInInspector;
+        public bool _genereteInInspector, _clearMap;
         Map _currentMap;
         Transform[,] _tileMap;
         public static Vector3 _mapStart { get; private set; }
@@ -92,12 +92,10 @@ namespace Max.Generetion
             _freeShuffledCoords = new Queue<Coord>(ShuffleArray.Shuffle(_allFreeCoord.ToArray(), _currentMap._seed));
             Debug.Log(_freeCoord.Count);
         }
-
         public void Shufle()
         {
             _shuffledCoords = new Queue<Coord>(ShuffleArray.Shuffle(_allTileCoords.ToArray(), _currentMap._seed));
         }
-
         //
         bool MapIsFullAccesible(bool[,] obstacleMap, int currentObstacleCnt)
         {

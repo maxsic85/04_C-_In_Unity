@@ -5,6 +5,6 @@ namespace Max.Core
 {
     public interface Imove
     {
-        void Move();
+        void Move(Vector3 _point);
     }
 }

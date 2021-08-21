@@ -19,6 +19,6 @@ public class PlayerController : IExecute
 
     public void Execute(float deltaTime)
     {
-        _move.Move();
+        _move.Move(Vector3.one);
     }
 }
