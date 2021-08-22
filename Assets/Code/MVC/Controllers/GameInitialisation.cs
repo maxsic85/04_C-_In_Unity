@@ -17,14 +17,14 @@ public sealed class GameInitialisation
 
 
         _levelGenerator = GameObject.FindObjectOfType<ShuffleMapGeneretion>();
-        Transform _enemyPosition =  _levelGenerator.GetRandomOpenTile();
+        Transform _enemyPosition = _levelGenerator.GetRandomOpenTile();
         Transform[] _boostPosition = { _levelGenerator.GetRandomOpenTile() };  //œ–» √≈Õ≈–¿÷»» > 1 ﬁÕ»“¿ —Œ¡€“»≈  Œ“–¿¡¿“€¬¿≈“ “ŒÀ‹ Œ Õ¿ ŒƒÕŒÃ
 
 
         var playerFactory = new PlayerFactory(_dataPlayer, ShuffleMapGeneretion._mapStart + c_offset);
         var playerInitialization = new PlayerInitialisation(playerFactory);
 
-        var enemyFactory = new EnemyFactory(_dataEnemy, _enemyPosition);
+        var enemyFactory = new EnemyFactory(_dataEnemy);
         var enemyInitialization = new EnemyInitialisation(enemyFactory);
 
         var boostFactory = new BoostFactory(_boostData, _boostPosition);

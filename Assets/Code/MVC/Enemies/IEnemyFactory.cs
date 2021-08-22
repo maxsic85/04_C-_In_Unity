@@ -4,5 +4,5 @@ using UnityEngine;
 using Max.Core;
 public interface IEnemyFactory 
 {
-    IEnemy CreateEnemy();
+    IEnemy CreateEnemy(Transform transform);
 }

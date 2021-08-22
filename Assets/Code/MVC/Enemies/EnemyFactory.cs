@@ -2,20 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Max.Core;
+using Max.Generetion;
+
 public sealed class EnemyFactory : IEnemyFactory
 {
     private readonly EnemyData _enemyData;
 
-
-    Transform _position;
-
-    public EnemyFactory(EnemyData enemyData, Transform position)
+    public EnemyFactory(EnemyData enemyData)
     {
         _enemyData = enemyData;
-        _position = position;
+      
     }
 
-    public IEnemy CreateEnemy()
+    public IEnemy CreateEnemy(Transform position)
     {
         //GameObject[] _go =new GameObject[_position.Length];
         //for (int i = 0; i < _position.Length; i++)
@@ -27,7 +26,7 @@ public sealed class EnemyFactory : IEnemyFactory
         //return _go;
 
         var enemyProvider = _enemyData.GetEnemy();
-        enemyProvider.transform.position = _position.position;
+        enemyProvider.transform.position = position.position;
         return Object.Instantiate(enemyProvider);
     }
 
