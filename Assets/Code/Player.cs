@@ -8,8 +8,10 @@ using UnityEngine.UIElements;
 namespace Max.Core
 {
 
-    public sealed partial class Player : MonoBehaviour, IDamageble
+    public sealed  class Player : MonoBehaviour, IDamageble,IPlayer
     {
+        public event Action<int> OnTriggerEnterChange;
+
         //Just MArker
         public void GetFamage()
         {

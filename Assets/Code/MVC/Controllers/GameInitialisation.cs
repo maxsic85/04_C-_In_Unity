@@ -11,10 +11,12 @@ public sealed class GameInitialisation
        Vector3 c_offset =new Vector3(0, 0.05f, 0);
     public GameInitialisation(Controllers _controllers)
     {
-        PlayerData _dataPlayer = new PlayerData("Prefabs/Core/Player", 1, 1, 1, LayerMask.GetMask("Wall"));
-        EnemyData _dataEnemy = new EnemyData("Prefabs/Core/Enemy", 1, 1, 1, (GameObject)Resources.Load("Prefabs/Core/Enemy"));
-        BoostData _boostData = new BoostData("Prefabs/Meta/Boost", 1, BoostType.GOOD);
-
+        //PlayerData _dataPlayer = new PlayerData("Prefabs/Core/Player", 1, 1, 1, LayerMask.GetMask("Wall"));
+       // BoostData _boostData = new BoostData("Prefabs/Meta/Boost", 1, BoostType.GOOD);
+       // EnemyData _dataEnemy = new EnemyData("Prefabs/Core/Enemy", 1, 1, 1, (GameObject)Resources.Load("Prefabs/Core/Enemy"));
+        PlayerData _dataPlayer = new PlayerData();
+        EnemyData _dataEnemy = new EnemyData();
+        BoostData _boostData = new BoostData();
 
         _levelGenerator = GameObject.FindObjectOfType<ShuffleMapGeneretion>();
         Transform _enemyPosition = _levelGenerator.GetRandomOpenTile();

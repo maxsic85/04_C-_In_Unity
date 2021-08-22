@@ -3,16 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public struct EnemyData
+public class EnemyData
 {
-    public string _path { get; private set; }
-    public int _baseSpeed { get; private set; }
-    public int _baseAreaVisible { get; private set; }
-    public int _baseDamage { get; private set; }
+    public string _path { get; private set; } = "Prefabs/Core/Enemy";
+    public int _baseSpeed { get; private set; } = 1;
+    public int _baseAreaVisible { get; private set; } = 1;
+    public int _baseDamage { get; private set; } = 1;
 
     public GameObject _prefab;
 
-
+    public EnemyData()
+    {
+        _enemyInfos = new List<EnemyInfo>();
+        _prefab = (GameObject)Resources.Load("Prefabs/Core/Enemy");
+    }
 
     public EnemyData(string path, int speed, int baseAreaVisible, int damage, GameObject prefab)
     {

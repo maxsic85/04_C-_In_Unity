@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IPlayerFactory 
+ public interface IPlayerFactory 
 {
-    GameObject CreatePlayer();
+  public  IPlayer CreatePlayer();
 }

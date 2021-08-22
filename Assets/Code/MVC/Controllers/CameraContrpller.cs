@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraContrpller : IExecute
 {
 
-    private const float smooth = 5.0f;
+    private const float smooth = 0.50f;
     [SerializeField]
     private  Vector3 offset = new Vector3(0, 2, -0);
     private Transform _player;

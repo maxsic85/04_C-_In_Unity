@@ -24,7 +24,6 @@ public sealed class EnemyFactory : IEnemyFactory
 
         //}
         //return _go;
-
         var enemyProvider = _enemyData.GetEnemy();
         enemyProvider.transform.position = position.position;
         return Object.Instantiate(enemyProvider);

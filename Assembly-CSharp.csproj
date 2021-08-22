@@ -56,29 +56,30 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Code\MVC\Interfaces\IFire.cs" />
     <Compile Include="Assets\Code\MVC\Controllers\GameStarter.cs" />
-    <Compile Include="Assets\Code\Meta\IBoost.cs" />
     <Compile Include="Assets\Code\Generetion\Interfaces\IShuffleGeneretion.cs" />
     <Compile Include="Assets\Code\MVC\Controllers\EnemyInitialisation.cs" />
+    <Compile Include="Assets\Code\MVC\Enemies\EnemyProvider.cs" />
     <Compile Include="Assets\Code\Generetion\Interfaces\IMapGeneretion.cs" />
     <Compile Include="Assets\Code\MVC\Boost\BoostFactory.cs" />
     <Compile Include="Assets\Code\MVC\Interfaces\IInitialisation.cs" />
     <Compile Include="Assets\Code\MVC\Interfaces\IExecute.cs" />
-    <Compile Include="Assets\Code\Interfaces\IKeybordMove.cs" />
-    <Compile Include="Assets\Code\Interfaces\Imove.cs" />
-    <Compile Include="Assets\Code\Interfaces\IPlayerMove.cs" />
+    <Compile Include="Assets\Code\MVC\Interfaces\IKeybordMove.cs" />
+    <Compile Include="Assets\Code\MVC\Interfaces\Imove.cs" />
+    <Compile Include="Assets\Code\MVC\Player\IPlayerMove.cs" />
     <Compile Include="Assets\Code\MVC\Data\BoostData.cs" />
-    <Compile Include="Assets\Code\Meta\DisplayData.cs" />
+    <Compile Include="Assets\Code\MVC\VIEW\DisplayData.cs" />
     <Compile Include="Assets\Code\MVC\Controllers\DamageController.cs" />
-    <Compile Include="Assets\Code\Meta\IDropBoost.cs" />
     <Compile Include="Assets\Code\Generetion\ShuffleArray.cs" />
-    <Compile Include="Assets\Code\Interfaces\IDrawSectorVisibility.cs" />
+    <Compile Include="Assets\Code\MVC\Enemies\IDrawSectorVisibility.cs" />
     <Compile Include="Assets\Code\MVC\Enemies\EnemyMoveController.cs" />
     <Compile Include="Assets\Code\Generetion\Interfaces\IEnemyGeneretion.cs" />
     <Compile Include="Assets\Code\MVC\Controllers\PlayerController.cs" />
     <Compile Include="Assets\Code\Generetion\ShuffleMapGeneretion.cs" />
     <Compile Include="Assets\Code\MVC\Enemies\IEnemyFactory.cs" />
-    <Compile Include="Assets\Code\Meta\DisplayEvvents.cs" />
+    <Compile Include="Assets\Code\MVC\Enemies\CompositeMove.cs" />
+    <Compile Include="Assets\Code\MVC\VIEW\DisplayEvvents.cs" />
     <Compile Include="Assets\Code\MVC\Controllers\BoostInitialisation.cs" />
     <Compile Include="Assets\Code\MVC\Interfaces\IController.cs" />
     <Compile Include="Assets\Code\MVC\Enemies\EnemyFactory.cs" />
@@ -97,9 +98,8 @@
     <Compile Include="Assets\Code\MVC\Interfaces\IDamageble.cs" />
     <Compile Include="Assets\Code\MVC\Player\IPlayerFactory.cs" />
     <Compile Include="Assets\Code\MVC\Data\EnemyData.cs" />
-    <Compile Include="Assets\Code\Meta\Boost.cs" />
-    <Compile Include="Assets\Code\MVC\Enemies\EnemyProvider.cs" />
-    <Compile Include="Assets\Code\MVC\Enemies\CompositeMove.cs" />
+    <Compile Include="Assets\Code\MVC\Boost\Boost.cs" />
+    <Compile Include="Assets\Code\MVC\Player\IPlayer.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Tasks.txt" />

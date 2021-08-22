@@ -64,7 +64,7 @@ namespace Max.Core
             if (!CheckWall() )
             {
                 _tr.Translate(
-               Moves() * _tr.forward * _speed * Time.fixedDeltaTime,
+               Moves() * _tr.forward * _speed * Time.deltaTime,
                Space.World
            );
             }

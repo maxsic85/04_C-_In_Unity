@@ -12,9 +12,12 @@ public sealed class PlayerFactory : IPlayerFactory
         _position = position;
     }
 
-    public GameObject CreatePlayer()
+  public   IPlayer CreatePlayer()
     {
-        var a = GameObject.Instantiate(Resources.Load(_playerData._path), _position, Quaternion.identity);
-        return a as GameObject;
+        //var a = GameObject.Instantiate(Resources.Load(_playerData._path), _position, Quaternion.identity);
+        //return a as GameObject;
+        var enemyProvider = _playerData.GetPlayer();
+        enemyProvider.transform.position = _position;
+        return Object.Instantiate(enemyProvider);
     }
 }
