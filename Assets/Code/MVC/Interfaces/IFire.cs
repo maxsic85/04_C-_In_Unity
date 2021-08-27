@@ -1,7 +1,7 @@
 ﻿
-
+using UnityEngine;
 public interface IFire
 {
-    public void Fire();
+    public void Fire(BuiletData  data, BuiletFactory fabrik);
 }
 

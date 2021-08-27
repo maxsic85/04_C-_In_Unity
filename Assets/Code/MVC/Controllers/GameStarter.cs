@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Assets.Code.MVC.VIEW;
 public class GameStarter : MonoBehaviour
 {
 
@@ -12,6 +12,7 @@ public class GameStarter : MonoBehaviour
         _controllers = new Controllers();
         new GameInitialisation(_controllers);
         _controllers.Initialization();
+      
     }
 
     // Update is called once per frame

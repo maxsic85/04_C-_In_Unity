@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Assets.Code.MVC.VIEW;
 
 public sealed class GameInitialisation 
 {
@@ -17,6 +18,10 @@ public sealed class GameInitialisation
         PlayerData _dataPlayer = new PlayerData();
         EnemyData _dataEnemy = new EnemyData();
         BoostData _boostData = new BoostData();
+        ITextaData text = UnityEngine.Object.FindObjectOfType<TextData>();
+    
+
+
 
         _levelGenerator = GameObject.FindObjectOfType<ShuffleMapGeneretion>();
         Transform _enemyPosition = _levelGenerator.GetRandomOpenTile();
@@ -41,6 +46,7 @@ public sealed class GameInitialisation
         _controllers.Add(new PlayerController(_player,_dataPlayer._baseSpeed,_dataPlayer._mask));
         _controllers.Add(new EnemyMoveController(enemyInitialization.GetMoveEnemies(), _player.gameObject.transform));
         _controllers.Add(new DamageController(10, _player.gameObject));
+        _controllers.Add(new TextController(_dataPlayer, text));
 
     }
 }
