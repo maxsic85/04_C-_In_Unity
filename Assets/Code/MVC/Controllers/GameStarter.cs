@@ -6,9 +6,11 @@ public class GameStarter : MonoBehaviour
 {
 
     private Controllers _controllers;
+   
     // Start is called before the first frame update
     void Start()
     {
+        this.gameObject.GetOrAddComponent<SomeExtenshion>();
         _controllers = new Controllers();
         new GameInitialisation(_controllers);
         _controllers.Initialization();
