@@ -5,7 +5,7 @@ using System.Linq;
 
 public class SomeExtenshion : MonoBehaviour
 {
-    string _testText = "hello world from the Earth";
+    string _testText = "hello world from the Earth ep";
     char _key = 'l';
     int _charCount;
 
@@ -56,8 +56,6 @@ public class SomeExtenshion : MonoBehaviour
         }
     }
 }
-
-
 
 public static class String
 {
