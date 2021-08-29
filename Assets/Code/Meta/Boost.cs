@@ -11,37 +11,24 @@ namespace Max.Meta
 
     public class Boost : MonoBehaviour, IDropBoost
     {
-
         BoostType _boost = new BoostType();
+        public event Action _boostEvent;
 
-        event Action IBoost.Boost
+        void Start()
         {
-            add
-            {
-                throw new NotImplementedException();
-            }
-
-            remove
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public void Dispose()
-        {
-            throw new NotImplementedException();
+            _boost = BoostType.ADDHEALTH;
         }
 
         public void GeneretionBoost()
         {
             throw new NotImplementedException();
         }
-
         public void UseBonus()
         {
             switch (_boost)
             {
-                case BoostType.ADDSPEED: Debug.Log("use addspeed");
+                case BoostType.ADDSPEED:
+                    Debug.Log("use addspeed");
                     break;
                 case BoostType.ADDHEALTH:
                     Debug.Log("use addhealth");
@@ -51,15 +38,23 @@ namespace Max.Meta
             }
 
         }
-
-        // Start is called before the first frame update
-        void Start()
+        private void OnTriggerEnter(Collider other)
         {
+            if (other.gameObject.GetComponent<Core.Player>() != null)
+            {
+                var addComponent = this;
+                addComponent._boostEvent += () =>
+                {
+                    Debug.Log(other.gameObject);
+                };
+                var _de = FindObjectOfType<DisplayEvvents>();
+                if (_de == null) throw new System.Data.DataException("DisplayEvvents not found");
+                _de.Init(addComponent);
 
+                _boostEvent?.Invoke();
+            }
         }
-
-        // Update is called once per frame
-        void Update()
+        public void Dispose()
         {
 
         }

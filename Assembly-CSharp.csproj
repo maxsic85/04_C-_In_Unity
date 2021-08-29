@@ -71,13 +71,14 @@
     <Compile Include="Assets\Code\Core\Interfaces\IDrawSectorVisibility.cs" />
     <Compile Include="Assets\Code\Generetion\Interfaces\IEnemyGeneretion.cs" />
     <Compile Include="Assets\Code\Generetion\ShuffleMapGeneretion.cs" />
+    <Compile Include="Assets\Code\Meta\DisplayEvvents.cs" />
     <Compile Include="Assets\Code\Generetion\Wall.cs" />
     <Compile Include="Assets\Code\Generetion\MapGenerator.cs" />
     <Compile Include="Assets\Code\Generetion\EnemyGeneretion.cs" />
     <Compile Include="Assets\Code\Core\Player.cs" />
     <Compile Include="Assets\Code\Core\KeyController.cs" />
     <Compile Include="Assets\Code\Meta\Boost.cs" />
-    <Compile Include="Assets\Code\Core\testEvents.cs" />
+    <Compile Include="Assets\Code\Meta\DisplayData.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

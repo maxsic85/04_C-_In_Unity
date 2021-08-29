@@ -7,6 +7,6 @@ namespace Max.Meta
 {
     public interface IBoost : IDisposable
     {
-        event System.Action Boost;
+        void GeneretionBoost();
     }
 }
