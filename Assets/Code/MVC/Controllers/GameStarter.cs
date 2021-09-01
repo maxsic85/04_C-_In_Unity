@@ -5,16 +5,19 @@ using Assets.Code.MVC.VIEW;
 public class GameStarter : MonoBehaviour
 {
 
-    private Controllers _controllers;
-   
+    public Controllers _controllers;
+    [SerializeField] private InputData _inputData;
+    [SerializeField] private MiniMapData _mapData;
+    [SerializeField] private RadarData _radarData;
+
     // Start is called before the first frame update
     void Start()
     {
         this.gameObject.GetOrAddComponent<SomeExtenshion>();
         _controllers = new Controllers();
-        new GameInitialisation(_controllers);
+        new GameInitialisation(_controllers, _inputData, _mapData,_radarData);
         _controllers.Initialization();
-      
+
     }
 
     // Update is called once per frame

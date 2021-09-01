@@ -19,7 +19,7 @@ public  class EnemyProvider : MonoBehaviour, IEnemy, IDisposable
     }
     public void Move(Vector3 point)
     {
- 
+        if (this == null) return;
           this.transform.LookAt(point);
         _agent.speed = _speed;
         _agent.SetDestination(point);  
@@ -36,19 +36,19 @@ public  class EnemyProvider : MonoBehaviour, IEnemy, IDisposable
     public void Dispose()
     {
      
-        Destroy(this.gameObject);
+        Destroy(this);
     }
 
     ~EnemyProvider()
     {
   
-        Destroy(this.gameObject);
+        Destroy(this);
     }
 
     public void OnDestroy()
     {
 
-        Destroy(this.gameObject);
+        Destroy(this);
     }
 }
 

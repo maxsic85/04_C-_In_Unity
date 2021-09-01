@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef28f755f84ec3240b89cacd45abf5a9, type: 3}
+  m_Name: MiniMapData
+  m_EditorClassIdentifier: 
+  _camera: {fileID: 433863941188060615, guid: 029b9c479608a1b41899aadf78c4baab, type: 3}
+  tagCamera: MiniMap
+  pathimage: {fileID: 8400000, guid: 5ddb17c53b79d1a4197966651f81d008, type: 2}

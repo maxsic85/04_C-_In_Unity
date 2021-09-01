@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using System;
 
 public class SomeExtenshion : MonoBehaviour
 {
@@ -19,8 +20,8 @@ public class SomeExtenshion : MonoBehaviour
 
 
         List<int> _list = new List<int>();
-        _charCount.AddTo(_list);
-        5.AddTo(_list);
+        //   _charCount.AddTo(_list);
+        //    5.AddTo(_list);
         ($"TestAddTo=  {_list.Count()}").DebugLog();
 
         int _testRepeat = 5;
@@ -31,9 +32,9 @@ public class SomeExtenshion : MonoBehaviour
         testStruct y = new testStruct(2, "yyyy");
         testStruct x = new testStruct(1, "zzzz");
         List<testStruct> _listT = new List<testStruct>(5);
-        z.AddTo(_listT);
-        y.AddTo(_listT);
-        x.AddTo(_listT);
+        //    z.AddTo(_listT);
+        //   y.AddTo(_listT);
+        //   x.AddTo(_listT);
 
         cnt = z.CountByKey(_listT);
         ($"TestCountByKey=  { cnt}").DebugLog();
@@ -110,69 +111,84 @@ public static class TestListT
         int number = (from t in coll where t.Equals(self) select t).Count();
         return number;
     }
-
-
 }
 
-public static class TestDictionary
-{
-    public static void test()
+
+
+    public static class TestDictionary
     {
-        Dictionary<string, int> dict = new Dictionary<string, int>()
+        public static void test()
+        {
+            Dictionary<string, int> dict = new Dictionary<string, int>()
             {
                 {"four",4 },
                 {"two",2 },
                 { "one",1 },
                 {"three",3 },
             };
-        /* FROM TASK
-          var d = dict.OrderBy(delegate (KeyValuePair<string, int> pair)
-          {
-              return pair.Value;
-          });
-        */
-        OrderToLyambda(dict);
-        int a = 3.ReturnValByKey(dict);
-    }
+            /* FROM TASK
+              var d = dict.OrderBy(delegate (KeyValuePair<string, int> pair)
+              {
+                  return pair.Value;
+              });
+            */
+            OrderToLyambda(dict);
+            int a = 3.ReturnValByKey(dict);
+        }
 
-    private static void OrderToLyambda(Dictionary<string, int> dict)
-    {
-        var l1 = dict.Where(u => u.Value > 2).ToList();
-        foreach (var pair in l1)
+        private static void OrderToLyambda(Dictionary<string, int> dict)
         {
-            Debug.Log($"{pair.Key} - {pair.Value}");
+            var l1 = dict.Where(u => u.Value > 2).ToList();
+            foreach (var pair in l1)
+            {
+                Debug.Log($"{pair.Key} - {pair.Value}");
+            }
+        }
+
+        public static int ReturnValByKey(this int self, Dictionary<string, int> dict)
+        {
+            var l1 = dict.Where(u => u.Value > self).ToList();
+            var val = 0;
+            foreach (var pair in l1)
+            {
+                val = pair.Value;
+            }
+            Debug.Log($"ReturnValByKey" + self + "is" + val);
+            return val;
         }
     }
 
-    public static int ReturnValByKey(this int self, Dictionary<string, int> dict)
+    public static class OtherExtenshions
     {
-        var l1 = dict.Where(u => u.Value > self).ToList();
-        var val = 0;
-        foreach (var pair in l1)
+        [ExecuteInEditMode]
+        public static void DebugLog(this string self)
         {
-            val = pair.Value;
-        }
-        Debug.Log($"ReturnValByKey" + self + "is" + val);
-        return val;
-    }
-}
-
-public static class OtherExtenshions
-{
-    [ExecuteInEditMode]
-    public static void DebugLog(this string self)
-    {
-        Debug.Log(self);
-    }
-
-    public static T GetOrAddComponent<T>(this GameObject child) where T : Component
-    {
-        T result = child.GetComponent<T>();
-        if (result == null)
-        {
-            result = child.AddComponent<T>();
+            Debug.Log(self);
         }
 
-        return result;
+        public static T GetOrAddComponent<T>(this GameObject child) where T : Component
+        {
+            T result = child.GetComponent<T>();
+            if (result == null)
+            {
+                result = child.AddComponent<T>();
+            }
+
+            return result;
+        }
+
+        public static float TrySingle(this string self)
+        {
+            if (Single.TryParse(self, out var res))
+            {
+                return res;
+            }
+            return 0;
+        }
+
+        public static T AddTo<T>(this T self, ICollection<T> coll)
+        {
+            coll.Add(self);
+            return self;
+        }
     }
-}
