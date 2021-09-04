@@ -7,11 +7,14 @@ namespace Max.Generetion
     {
         public override void OnInspectorGUI()
         {
-        Max.Generetion.ShuffleMapGeneretion map = target as Max.Generetion.ShuffleMapGeneretion;
+                    Max.Generetion.ShuffleMapGeneretion map = target as Max.Generetion.ShuffleMapGeneretion;
             base.OnInspectorGUI();
+      
+
             if (map._genereteInInspector)
             {
                 map.GeneretMap();
+                
                 map._genereteInInspector = !map._genereteInInspector;
             }
 
