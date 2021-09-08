@@ -650,10 +650,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{B7962EEB-0C84-CE16-226B-72B16064EE6D}</Project>
-      <Name>Assembly-CSharp</Name>
-    </ProjectReference>
     <ProjectReference Include="UnityEngine.TestRunner.csproj">
       <Project>{83A3013A-071B-44CF-50C8-051E1F554067}</Project>
       <Name>UnityEngine.TestRunner</Name>
@@ -674,6 +670,10 @@
       <Project>{50F85514-538E-7F36-CA8F-B30F9FD08F3B}</Project>
       <Name>Unity.VisualStudio.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="MVC.csproj">
+      <Project>{3879F7F1-6D84-7329-4861-7AF470ABB494}</Project>
+      <Name>MVC</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.Timeline.Editor.csproj">
       <Project>{E057A07C-3720-6421-4C6C-58A2939BD826}</Project>
       <Name>Unity.Timeline.Editor</Name>
@@ -689,6 +689,10 @@
     <ProjectReference Include="Unity.Rider.Editor.csproj">
       <Project>{E8943A6A-FBEB-035A-9292-010C233980C9}</Project>
       <Name>Unity.Rider.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Generetions.csproj">
+      <Project>{13A50222-00A0-A75A-31A4-7FA6113EE708}</Project>
+      <Name>Generetions</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

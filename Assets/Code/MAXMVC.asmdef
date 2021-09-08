@@ -1,0 +1,16 @@
+{
+    "name": "MVC",
+    "rootNamespace": "MAX.CODE.MVC",
+    "references": [
+        "GUID:53e1215780b2ba240b3ff68c9340d67f"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

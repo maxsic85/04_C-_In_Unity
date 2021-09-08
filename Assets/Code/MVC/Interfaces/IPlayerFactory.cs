@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
- public interface IPlayerFactory 
+namespace MAX.CODE.MVC
 {
-  public  IPlayer CreatePlayer();
+    public interface IPlayerFactory
+    {
+        public IPlayer CreatePlayer();
+    }
 }

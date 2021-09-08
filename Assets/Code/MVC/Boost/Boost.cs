@@ -1,67 +1,52 @@
 using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
-namespace Max.Meta
+namespace MAX.CODE.MVC
 {
-    public enum BoostType
-    {
+    public enum BoostTypeBonus
+            {
         ADDSPEED = 1,
         ADDHEALTH = 2,
-        ADDPOWER=3
+        ADDPOWER = 3
     }
 
     public sealed class Boost : MonoBehaviour
     {
         [SerializeField]
-        BoostType _boost = new BoostType();
+        BoostTypeBonus _boost = new BoostTypeBonus();
+
+        public BoostTypeBonus BoostType { get => _boost; set => _boost = value; }
+
         public event Action _boostEvent;
 
         void Start()
         {
-            _boost = (BoostType)Random.RandomRange(1, 3);
+            BoostType = (BoostTypeBonus)Random.RandomRange(1, 3);
         }
 
         public void GeneretionBoost()
         {
             throw new NotImplementedException();
         }
-        public void UseBonus()
-        {
-            switch (_boost)
-            {
-                case BoostType.ADDSPEED:
-                    Debug.Log("use addspeed");
-                    break;
-                case BoostType.ADDHEALTH:
-                    Debug.Log("use addhealth");
-                    break;
-                case BoostType.ADDPOWER:
-                    Debug.Log("use power");
-                    break;
-                default:
-                    break;
-            }
-
-        }
+  
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.GetComponent<Core.Player>() != null)
+            if (other.gameObject.GetComponent<Player>() != null)
             {
-              //  var addComponent = gameObject.GetComponent<Boost>();
-                //addComponent._boostEvent += () =>
-                //{
-                //    Debug.Log(other.gameObject);
-                //};
                 var _de = FindObjectOfType<DisplayEvvents>();
                 if (_de == null) throw new System.Data.DataException("DisplayEvvents not found");
                 _de.Init(transform.gameObject.GetComponent<Boost>());
 
-            this._boostEvent?.Invoke();
+                this._boostEvent?.Invoke();
+             
+                Destroy(this.gameObject);
             }
         }
         public void Dispose()
         {
-           
+            
+          
+            Dispose();
         }
     }
 }

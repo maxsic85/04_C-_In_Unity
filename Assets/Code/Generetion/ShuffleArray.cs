@@ -1,4 +1,4 @@
-namespace Max.Generetion
+namespace MAX.CODE.GENERETION
 {
     internal static class ShuffleArray
     {

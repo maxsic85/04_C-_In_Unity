@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-namespace Assets.Code.MVC.VIEW
+
+namespace MAX.CODE.MVC
 {
     [RequireComponent(typeof(Text))]
     public class TextData : MonoBehaviour, ITextaData
@@ -9,7 +10,7 @@ namespace Assets.Code.MVC.VIEW
 
         private void Awake()
         {
-            _text =gameObject.GetComponent<Text>();
+            _text = gameObject.GetComponent<Text>();
         }
 
         public void UpdateText(PlayerData data)

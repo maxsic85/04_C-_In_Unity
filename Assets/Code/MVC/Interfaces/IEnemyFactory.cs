@@ -1,5 +1,8 @@
 using UnityEngine;
-public interface IEnemyFactory 
+namespace MAX.CODE.MVC
 {
-    IEnemy CreateEnemy(Transform transform);
+    public interface IEnemyFactory
+    {
+        IEnemy CreateEnemy(Transform transform);
+    }
 }

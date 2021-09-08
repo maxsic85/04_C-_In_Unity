@@ -1,14 +1,10 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 
-namespace Max.Core
+namespace MAX.CODE.MVC
 {
-
-    public sealed  class Player : MonoBehaviour, IDamageble,IPlayer
+    public sealed class Player : MonoBehaviour, IDamageble, IPlayer
     {
         public event Action<int> OnTriggerEnterChange;
 

@@ -1,8 +1,10 @@
 
 using UnityEngine;
-
-public class RadarMarker : MonoBehaviour
+namespace MAX.CODE.MVC
 {
+    public class RadarMarker : MonoBehaviour
+    {
 
-    
+
+    }
 }

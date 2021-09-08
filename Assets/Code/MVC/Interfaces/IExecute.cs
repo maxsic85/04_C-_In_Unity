@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public interface IExecute : IController
+namespace MAX.CODE.MVC
 {
-    void Execute(float deltaTime);
+    public interface IExecute : IController
+    {
+        void Execute(float deltaTime);
+    }
 }

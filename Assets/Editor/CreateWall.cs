@@ -1,7 +1,6 @@
-using Max.Generetion;
+using MAX.CODE.GENERETION;
 using UnityEditor;
 using UnityEngine;
-
 public class CreateWall : ScriptableWizard
 {
     [SerializeField] private Mesh _mesh;
@@ -36,7 +35,7 @@ public class CreateWall : ScriptableWizard
             _levelGenerator.ClearEditor();
             _levelGenerator.GeneretMap();
         }
-         var _transf = _levelGenerator.GetRandomOpenTile();
+        var _transf = _levelGenerator.GetRandomOpenTile();
         _newWall.transform.position = _transf.position;
         _newWall.transform.position = _newWall.transform.position + Vector3.up / 2;
 

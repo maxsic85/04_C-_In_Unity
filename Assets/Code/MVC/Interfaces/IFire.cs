@@ -1,7 +1,7 @@
-﻿
-using UnityEngine;
-public interface IFire
+﻿namespace MAX.CODE.MVC
 {
-    public void Fire(BuiletData  data, BuiletFactory fabrik);
+    public interface IFire
+    {
+        public void Fire(BuiletData data, BuiletFactory fabrik);
+    }
 }
-

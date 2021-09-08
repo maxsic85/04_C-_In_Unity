@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{B7962EEB-0C84-CE16-226B-72B16064EE6D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC", "MVC.csproj", "{3879F7F1-6D84-7329-4861-7AF470ABB494}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityEngine.TestRunner", "UnityEngine.TestRunner.csproj", "{83A3013A-071B-44CF-50C8-051E1F554067}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.Timeline", "Unity.Timeline.csproj", "{70F9B370-2FD9-7B3D-D9B4-E142FC61D938}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Generetions", "Generetions.csproj", "{13A50222-00A0-A75A-31A4-7FA6113EE708}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.TextMeshPro", "Unity.TextMeshPro.csproj", "{E2FBB974-B146-F576-E0E6-E3851314B2FC}"
 EndProject
@@ -31,10 +33,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B7962EEB-0C84-CE16-226B-72B16064EE6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B7962EEB-0C84-CE16-226B-72B16064EE6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B7962EEB-0C84-CE16-226B-72B16064EE6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B7962EEB-0C84-CE16-226B-72B16064EE6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3879F7F1-6D84-7329-4861-7AF470ABB494}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3879F7F1-6D84-7329-4861-7AF470ABB494}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3879F7F1-6D84-7329-4861-7AF470ABB494}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3879F7F1-6D84-7329-4861-7AF470ABB494}.Release|Any CPU.Build.0 = Release|Any CPU
 		{83A3013A-071B-44CF-50C8-051E1F554067}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{83A3013A-071B-44CF-50C8-051E1F554067}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83A3013A-071B-44CF-50C8-051E1F554067}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -43,6 +45,10 @@ Global
 		{70F9B370-2FD9-7B3D-D9B4-E142FC61D938}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70F9B370-2FD9-7B3D-D9B4-E142FC61D938}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{70F9B370-2FD9-7B3D-D9B4-E142FC61D938}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13A50222-00A0-A75A-31A4-7FA6113EE708}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13A50222-00A0-A75A-31A4-7FA6113EE708}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13A50222-00A0-A75A-31A4-7FA6113EE708}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13A50222-00A0-A75A-31A4-7FA6113EE708}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E2FBB974-B146-F576-E0E6-E3851314B2FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E2FBB974-B146-F576-E0E6-E3851314B2FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E2FBB974-B146-F576-E0E6-E3851314B2FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
