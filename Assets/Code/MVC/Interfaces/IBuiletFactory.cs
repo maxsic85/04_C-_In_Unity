@@ -1,7 +1,10 @@
 ﻿using UnityEngine;
-public interface IBuiletFactory
+namespace MAX.CODE.MVC
 {
-  public GameObject CreateBuilet(Transform transform);
-   
+    public interface IBuiletFactory
+    {
+        public GameObject CreateBuilet(Transform transform);
+
+    }
 }
 

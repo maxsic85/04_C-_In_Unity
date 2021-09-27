@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Max.Generetion
+namespace MAX.CODE.GENERETION
 {
     public class ShuffleMapGeneretion : MonoBehaviour, IShuffleGeneretion
     {
@@ -168,7 +168,6 @@ namespace Max.Generetion
         public Coord _mapSize;
         [Range(0, 1)]
         public float _obtaclePercent;
-  
         public int _seed;
         public float _minObtacleHeight;
         public float _maxObtacleHeight;
@@ -180,7 +179,7 @@ namespace Max.Generetion
 
         public Coord _mapStart
         {
-            get => new Coord(0,0);
+            get => new Coord(0, 0);
         }
 
     }

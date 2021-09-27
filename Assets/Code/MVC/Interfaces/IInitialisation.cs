@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public interface IInitialisation :IController
+namespace MAX.CODE.MVC
 {
-    void Initialization();
+    public interface IInitialisation : IController
+    {
+        void Initialization();
+    }
 }

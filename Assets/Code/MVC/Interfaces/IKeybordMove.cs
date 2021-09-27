@@ -1,8 +1,7 @@
-using UnityEngine.UIElements;
-namespace Max.Core
+namespace MAX.CODE.MVC
 {
-    public interface IKeybordMove : Imove, IPlayerMove,IFire
+    public interface IKeybordMove : Imove, IPlayerMove, IFire
     {
-       public void GetInput();
+        public void GetInput();
     }
 }

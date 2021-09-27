@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public interface IDamageble 
+namespace MAX.CODE.MVC
 {
-    void GetFamage();
+    public interface IDamageble
+    {
+        void GetFamage();
+    }
 }

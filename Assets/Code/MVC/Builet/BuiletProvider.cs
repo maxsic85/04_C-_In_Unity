@@ -1,31 +1,39 @@
-﻿using System;
-using Max.Core;
-using UnityEngine;
-
-public class BuiletProvider : MonoBehaviour,IBuilet
+﻿using UnityEngine;
+namespace MAX.CODE.MVC
 {
-   
-
-
-    void Start() 
+    public class BuiletProvider : MonoBehaviour, IBuilet
     {
-     
-    }
+        [SerializeField] private int _damage;
 
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.GetComponent<Collider>() != null && !other.gameObject.GetComponent<Player>())
+        public int Damage { get => _damage; set => _damage = value; }
+
+        private void OnEnable()
         {
-            if (other.gameObject.GetComponent<EnemyProvider>())
-            {
-
-
-                // other.GetComponent<CompositeMove>().RemoveUnit(other.GetComponent<Imove>());   
-               Destroy(other.gameObject);
-               // other.gameObject.SetActive(false);
-            }
+            Destroy(gameObject, 3f);
         }
+
+
+        void OnTriggerEnter(Collider other)
+        {
+           
+            if (other.gameObject.GetComponent<Collider>() != null && !other.gameObject.GetComponent<Player>())
+            {
+               
+                if (other.gameObject.GetComponent<EnemyProvider>())
+                {
+                    (int Hp, int Stamina) dm = other.gameObject.GetComponent<EnemyProvider>().GetDamage(Damage);
+
+                    if (dm.Hp <= 0)
+                    {
+                        Destroy(other.gameObject);
+                    }
+                  
+                }
+
+            }
+           
+        }
+
     }
 
 }
-

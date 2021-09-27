@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Max.Meta
+namespace MAX.CODE.MVC
 {
     public static class DisplayData
     {

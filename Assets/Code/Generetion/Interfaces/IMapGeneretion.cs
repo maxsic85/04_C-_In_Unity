@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-namespace Max.Generetion
+namespace MAX.CODE.GENERETION
 {
     public interface IMapGeneretion
     {
-       public  void GeneretMap();
+        public void GeneretMap();
     }
 }

@@ -1,8 +1,7 @@
-﻿using System;
-using Max.Core;
-
-public interface IEnemy : Imove
+﻿namespace MAX.CODE.MVC
 {
- 
-}
+    public interface IEnemy : Imove
+    {
 
+    }
+}

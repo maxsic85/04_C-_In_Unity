@@ -1,26 +1,29 @@
 using UnityEngine;
 using UnityEngine.UI;
-using static RadarController;
-public class RadarProvider : MonoBehaviour
+using static MAX.CODE.MVC.RadarController;
+namespace MAX.CODE.MVC
 {
-	
-	[SerializeField] private Image _ico;
-	[SerializeField] RadarData data;
+    public class RadarProvider : MonoBehaviour
+    {
 
-    private void OnValidate()
-	{
-		var a = (GameObject)Resources.Load(data._icoPAth);
-		_ico = a.GetComponent<Image>();
-	}
+        [SerializeField] private Image _ico;
+        [SerializeField] RadarData data;
 
-	private void OnDisable()
-	{
-		RemoveRadarObject(gameObject);
-	}
+        private void OnValidate()
+        {
+            var a = (GameObject)Resources.Load(data._icoPAth);
+            _ico = a.GetComponent<Image>();
+        }
 
-	private void OnEnable()
-	{
-		RegisterRadarObject(gameObject, _ico);
-	}
+        private void OnDisable()
+        {
+            RemoveRadarObject(gameObject);
+        }
 
+        private void OnEnable()
+        {
+            RegisterRadarObject(gameObject, _ico);
+        }
+
+    }
 }

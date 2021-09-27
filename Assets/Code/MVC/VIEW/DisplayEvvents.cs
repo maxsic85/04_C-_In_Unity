@@ -1,26 +1,47 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Max.Meta
+namespace MAX.CODE.MVC
 {
     public sealed class DisplayEvvents : MonoBehaviour, IDisposable
     {
         Camera _main;
         Boost _dropBoost;
-
+        BoostTypeBonus _boostType;
         public void Init(Boost boost)
         {
+            _boostType = boost.BoostType;
+            _dropBoost = FindObjectOfType<Boost>();
             _dropBoost = boost;
             _main = Camera.main;
             _main.backgroundColor = DisplayData._cameraBackColor;
-            _dropBoost = FindObjectOfType<Max.Meta.Boost>();
-            _dropBoost._boostEvent += ChangeColor;
-            _dropBoost._boostEvent += ShakeCamera;
-         Debug.Log("не работает экшн если на сцене более 1 обьекта, отрабатывает только 1");
+            switch (_boostType)
+            {
+                case BoostTypeBonus.ADDSPEED:
+                    _dropBoost._boostEvent += ChangeColor;
+                    break;
+                case BoostTypeBonus.ADDHEALTH:
+                    _dropBoost._boostEvent += ShakeCamera;
+                    break;
+                case BoostTypeBonus.ADDPOWER:
+
+                    break;
+                default:
+                    break;
+            }
+
+
+
+
+
+            //_dropBoost._boostEvent += ChangeColor;
+            //_dropBoost._boostEvent += ShakeCamera;
+            Debug.Log("не работает экшн если на сцене более 1 обьекта, отрабатывает только 1");
         }
+
+
 
         public IEnumerator ChangeColorNumerator()
         {
@@ -34,7 +55,7 @@ namespace Max.Meta
                 yield return null;
 
             }
-            _main.backgroundColor =  DisplayData._cameraBackColor;
+            _main.backgroundColor = DisplayData._cameraBackColor;
         }
         private IEnumerator ShakeCameraCor(float duration, float magnitude, float noize)
         {

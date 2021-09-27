@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using System.Linq;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 
 public class SomeExtenshion : MonoBehaviour
 {
@@ -115,80 +114,80 @@ public static class TestListT
 
 
 
-    public static class TestDictionary
+public static class TestDictionary
+{
+    public static void test()
     {
-        public static void test()
-        {
-            Dictionary<string, int> dict = new Dictionary<string, int>()
+        Dictionary<string, int> dict = new Dictionary<string, int>()
             {
                 {"four",4 },
                 {"two",2 },
                 { "one",1 },
                 {"three",3 },
             };
-            /* FROM TASK
-              var d = dict.OrderBy(delegate (KeyValuePair<string, int> pair)
-              {
-                  return pair.Value;
-              });
-            */
-            OrderToLyambda(dict);
-            int a = 3.ReturnValByKey(dict);
-        }
-
-        private static void OrderToLyambda(Dictionary<string, int> dict)
-        {
-            var l1 = dict.Where(u => u.Value > 2).ToList();
-            foreach (var pair in l1)
-            {
-                Debug.Log($"{pair.Key} - {pair.Value}");
-            }
-        }
-
-        public static int ReturnValByKey(this int self, Dictionary<string, int> dict)
-        {
-            var l1 = dict.Where(u => u.Value > self).ToList();
-            var val = 0;
-            foreach (var pair in l1)
-            {
-                val = pair.Value;
-            }
-            Debug.Log($"ReturnValByKey" + self + "is" + val);
-            return val;
-        }
+        /* FROM TASK
+          var d = dict.OrderBy(delegate (KeyValuePair<string, int> pair)
+          {
+              return pair.Value;
+          });
+        */
+        OrderToLyambda(dict);
+        int a = 3.ReturnValByKey(dict);
     }
 
-    public static class OtherExtenshions
+    private static void OrderToLyambda(Dictionary<string, int> dict)
     {
-        [ExecuteInEditMode]
-        public static void DebugLog(this string self)
+        var l1 = dict.Where(u => u.Value > 2).ToList();
+        foreach (var pair in l1)
         {
-            Debug.Log(self);
-        }
-
-        public static T GetOrAddComponent<T>(this GameObject child) where T : Component
-        {
-            T result = child.GetComponent<T>();
-            if (result == null)
-            {
-                result = child.AddComponent<T>();
-            }
-
-            return result;
-        }
-
-        public static float TrySingle(this string self)
-        {
-            if (Single.TryParse(self, out var res))
-            {
-                return res;
-            }
-            return 0;
-        }
-
-        public static T AddTo<T>(this T self, ICollection<T> coll)
-        {
-            coll.Add(self);
-            return self;
+            Debug.Log($"{pair.Key} - {pair.Value}");
         }
     }
+
+    public static int ReturnValByKey(this int self, Dictionary<string, int> dict)
+    {
+        var l1 = dict.Where(u => u.Value > self).ToList();
+        var val = 0;
+        foreach (var pair in l1)
+        {
+            val = pair.Value;
+        }
+        Debug.Log($"ReturnValByKey" + self + "is" + val);
+        return val;
+    }
+}
+
+public static class OtherExtenshions
+{
+    [ExecuteInEditMode]
+    public static void DebugLog(this string self)
+    {
+        Debug.Log(self);
+    }
+
+    public static T GetOrAddComponent<T>(this GameObject child) where T : Component
+    {
+        T result = child.GetComponent<T>();
+        if (result == null)
+        {
+            result = child.AddComponent<T>();
+        }
+
+        return result;
+    }
+
+    public static float TrySingle(this string self)
+    {
+        if (Single.TryParse(self, out var res))
+        {
+            return res;
+        }
+        return 0;
+    }
+
+    public static T AddTo<T>(this T self, ICollection<T> coll)
+    {
+        coll.Add(self);
+        return self;
+    }
+}

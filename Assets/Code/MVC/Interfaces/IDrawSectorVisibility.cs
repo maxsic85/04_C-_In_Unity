@@ -1,4 +1,4 @@
-namespace Max.Core
+namespace MAX.CODE.MVC
 {
     public interface IDrawSectorVisibility
     {

@@ -1,19 +1,17 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 /// <summary>
 /// Перемещение без физики
 /// Для не прохождения через стены пускаем луч
 /// </summary>
-namespace Max.Core
+namespace MAX.CODE.MVC
 {
     public sealed class KeyController : IKeybordMove
     {
         #region Save/Load
         InputData _inputData;
-        public  ISavePlayerPosition _saveDataPosition;
+        public ISavePlayerPosition _saveDataPosition;
         #endregion
 
         public event Action<float> OnStepNoizeChange;
@@ -95,12 +93,7 @@ namespace Max.Core
                 Debug.Log("Fire");
 
                 var currentBuilet = fabrik.CreateBuilet(_tr);
-                currentBuilet.GetComponent<Rigidbody>().AddForce(_tr.transform.forward * data._baseSpeed);
-                // currentBuilet.GetComponent<Rigidbody>().AddForce(_tr.transform.forward * data._baseSpeed);
-
-                // GameObject outBuilett = GameObject.Instantiate((GameObject)Resources.Load(data._path), _tr.position, Quaternion.identity);
-                // outBuilett.GetComponent<Rigidbody>().AddForce(_tr.transform.forward * data._baseSpeed);
-
+                currentBuilet.GetComponent<Rigidbody>().AddForce(_tr.forward * data._baseSpeed);
             }
         }
     }

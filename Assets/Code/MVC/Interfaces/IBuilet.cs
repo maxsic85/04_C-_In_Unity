@@ -1,7 +1,7 @@
-﻿using Max.Core;
-using UnityEngine;
-public interface IBuilet
+﻿namespace MAX.CODE.MVC
 {
- 
-}
+    public interface IBuilet
+    {
 
+    }
+}

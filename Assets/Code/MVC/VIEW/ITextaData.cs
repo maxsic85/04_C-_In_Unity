@@ -1,4 +1,4 @@
-﻿namespace Assets.Code.MVC.VIEW
+﻿namespace MAX.CODE.MVC
 {
     public interface ITextaData
     {

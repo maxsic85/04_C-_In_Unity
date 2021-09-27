@@ -1,6 +1,8 @@
 ﻿using System;
-
-public interface IPlayer
+namespace MAX.CODE.MVC
 {
-   event Action<int> OnTriggerEnterChange;
+    public interface IPlayer
+    {
+        event Action<int> OnTriggerEnterChange;
+    }
 }

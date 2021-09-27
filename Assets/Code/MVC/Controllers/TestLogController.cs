@@ -1,11 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
-public class TestLogController : IExecute
+namespace MAX.CODE.MVC
 {
-    public void Execute(float deltaTime)
+    public class TestLogController : IExecute
     {
-        Debug.Log("TestCOntroller");
+        public void Execute(float deltaTime)
+        {
+            Debug.Log("TestCOntroller");
+        }
     }
 }

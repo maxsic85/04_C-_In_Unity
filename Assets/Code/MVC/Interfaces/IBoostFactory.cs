@@ -1,8 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
-public interface IBoostFactory 
+namespace MAX.CODE.MVC
 {
-    GameObject[] CreateBoost();
+    public interface IBoostFactory
+    {
+        GameObject[] CreateBoost();
+    }
 }
