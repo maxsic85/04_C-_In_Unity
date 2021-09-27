@@ -6,20 +6,17 @@ using UnityEngine;
 using System;
 using Assets.Code.MVC.VIEW;
 
-public sealed class GameInitialisation 
+public sealed class GameInitialisation
 {
     ShuffleMapGeneretion _levelGenerator;
-       Vector3 c_offset =new Vector3(0, 0.05f, 0);
-    public GameInitialisation(Controllers _controllers)
+    Vector3 c_offset = new Vector3(0, 0.05f, 0);
+    public GameInitialisation(Controllers _controllers, InputData inputData, MiniMapData mapdata, RadarData radarData)
     {
-        //PlayerData _dataPlayer = new PlayerData("Prefabs/Core/Player", 1, 1, 1, LayerMask.GetMask("Wall"));
-       // BoostData _boostData = new BoostData("Prefabs/Meta/Boost", 1, BoostType.GOOD);
-       // EnemyData _dataEnemy = new EnemyData("Prefabs/Core/Enemy", 1, 1, 1, (GameObject)Resources.Load("Prefabs/Core/Enemy"));
         PlayerData _dataPlayer = new PlayerData();
         EnemyData _dataEnemy = new EnemyData();
         BoostData _boostData = new BoostData();
         ITextaData text = UnityEngine.Object.FindObjectOfType<TextData>();
-    
+        ISavePlayerPosition _save = new SaveDataRep();
 
 
 
@@ -42,11 +39,12 @@ public sealed class GameInitialisation
 
 
         _controllers.Add(new TestLogController());
-        _controllers.Add(new CameraContrpller(_player,_camera));
-        _controllers.Add(new PlayerController(_player,_dataPlayer._baseSpeed,_dataPlayer._mask));
+        _controllers.Add(new CameraContrpller(_player, _camera));
+        _controllers.Add(new PlayerController(_player, _dataPlayer._baseSpeed, _dataPlayer._mask, inputData, _save));
         _controllers.Add(new EnemyMoveController(enemyInitialization.GetMoveEnemies(), _player.gameObject.transform));
         _controllers.Add(new DamageController(10, _player.gameObject));
+        _controllers.Add(new MapController(mapdata, _player));
+        _controllers.Add(new RadarController(radarData, _player));
         _controllers.Add(new TextController(_dataPlayer, text));
-
     }
 }

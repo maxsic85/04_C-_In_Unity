@@ -11,6 +11,11 @@ namespace Max.Core
 {
     public sealed class KeyController : IKeybordMove
     {
+        #region Save/Load
+        InputData _inputData;
+        public  ISavePlayerPosition _saveDataPosition;
+        #endregion
+
         public event Action<float> OnStepNoizeChange;
         private readonly IBuiletFactory _builetFactory;
         public void OnMouseDown(MouseDownEvent evt)
@@ -25,17 +30,29 @@ namespace Max.Core
         LayerMask _mask;
         RaycastHit _hit;
         RaycastHit _hitDown;
-        public KeyController(Transform tr, float speed, LayerMask mask)
+        public KeyController(Transform tr, float speed, LayerMask mask, InputData data, ISavePlayerPosition save)
         {
+            _saveDataPosition = save;
+            //_saveDataPosition = new SaveDataRep();
             this._tr = tr;
             this._speed = speed;
             this._mask = mask;
+            this._inputData = data;
         }
 
         public void GetInput()
         {
             _moveVector.z = Input.GetAxis("Horizontal");
             _moveVector.x = -Input.GetAxis("Vertical");
+
+            if (Input.GetKeyDown(_inputData.SavePlayer))
+            {
+                _saveDataPosition.Save(_tr.position);
+            }
+            if (Input.GetKeyDown(_inputData.LoadPlayer))
+            {
+                _saveDataPosition.Load(_tr.position);
+            }
         }
         private float Moves()
         {

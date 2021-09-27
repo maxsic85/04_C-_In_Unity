@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{B9FDD979-23E0-1EA8-D885-BE36287D9F67}</ProjectGuid>
+    <ProjectGuid>{B7962EEB-0C84-CE16-226B-72B16064EE6D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -59,12 +59,18 @@
     <Compile Include="Assets\Code\MVC\Interfaces\IPlayer.cs" />
     <Compile Include="Assets\Code\MVC\Interfaces\IFire.cs" />
     <Compile Include="Assets\Code\MVC\Controllers\GameStarter.cs" />
+    <Compile Include="Assets\Code\MVC\Controllers\MapController.cs" />
     <Compile Include="Assets\Code\Generetion\Interfaces\IShuffleGeneretion.cs" />
     <Compile Include="Assets\Code\MVC\Controllers\EnemyInitialisation.cs" />
     <Compile Include="Assets\Code\MVC\Enemies\EnemyProvider.cs" />
+    <Compile Include="Assets\Code\Scriptable\RadarData.cs" />
     <Compile Include="Assets\Code\Generetion\Interfaces\IMapGeneretion.cs" />
+    <Compile Include="Assets\Code\MVC\Interfaces\ISavePlayerPosition.cs" />
+    <Compile Include="Assets\Code\Scriptable\InputData.cs" />
     <Compile Include="Assets\Code\MVC\Boost\BoostFactory.cs" />
+    <Compile Include="Assets\Code\Extenshion\SomeExtenshion.cs" />
     <Compile Include="Assets\Code\MVC\Interfaces\IInitialisation.cs" />
+    <Compile Include="Assets\Code\MVC\SaveData\XMLData.cs" />
     <Compile Include="Assets\Code\MVC\Interfaces\IExecute.cs" />
     <Compile Include="Assets\Code\MVC\Interfaces\IBuilet.cs" />
     <Compile Include="Assets\Code\MVC\Interfaces\IKeybordMove.cs" />
@@ -91,6 +97,7 @@
     <Compile Include="Assets\Code\MVC\Interfaces\IBuiletFactory.cs" />
     <Compile Include="Assets\Code\MVC\Enemies\EnemyFactory.cs" />
     <Compile Include="Assets\Code\MVC\VIEW\ITextaData.cs" />
+    <Compile Include="Assets\Code\MVC\Interfaces\IDataSave.cs" />
     <Compile Include="Assets\Code\Generetion\MapGenerator.cs" />
     <Compile Include="Assets\Code\MVC\Controllers\TestLogController.cs" />
     <Compile Include="Assets\Code\MVC\Interfaces\IEnemy.cs" />
@@ -98,17 +105,23 @@
     <Compile Include="Assets\Code\MVC\Controllers\CameraContrpller.cs" />
     <Compile Include="Assets\Code\MVC\Player\PlayerFactory.cs" />
     <Compile Include="Assets\Code\MVC\Controllers\GameInitialisation.cs" />
+    <Compile Include="Assets\Code\MVC\SaveData\SavedData.cs" />
     <Compile Include="Assets\Code\MVC\Player\Player.cs" />
     <Compile Include="Assets\Code\MVC\Data\PlayerData.cs" />
     <Compile Include="Assets\Code\MVC\Interfaces\IBoostFactory.cs" />
     <Compile Include="Assets\Code\MVC\Builet\BuiletFactory.cs" />
     <Compile Include="Assets\Code\MVC\Controllers\PlayerInitialisation.cs" />
+    <Compile Include="Assets\Code\MVC\SaveData\SaveDataRep.cs" />
+    <Compile Include="Assets\Code\Scriptable\MiniMapData.cs" />
     <Compile Include="Assets\Code\MVC\Controllers\KeyController.cs" />
     <Compile Include="Assets\Code\MVC\Interfaces\IDamageble.cs" />
     <Compile Include="Assets\Code\MVC\Interfaces\IPlayerFactory.cs" />
     <Compile Include="Assets\Code\MVC\Data\EnemyData.cs" />
     <Compile Include="Assets\Code\MVC\Boost\Boost.cs" />
-    <Compile Include="Assets\Code\Extenshion\SomeExtenshion.cs" />
+    <Compile Include="Assets\Code\MVC\Controllers\RadarController.cs" />
+    <Compile Include="Assets\Code\MVC\Radar\RadarProvider.cs" />
+    <Compile Include="Assets\Code\MVC\Radar\RadarObject.cs" />
+    <Compile Include="Assets\Code\MVC\Radar\RadarMarker.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Tasks.txt" />
@@ -679,31 +692,31 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Unity.VSCode.Editor.csproj">
-      <Project>{297BB5F1-561C-668B-17CD-43613472C384}</Project>
+      <Project>{CCBC036C-40A7-C0E7-E4C1-316B105286B5}</Project>
       <Name>Unity.VSCode.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.TextMeshPro.Editor.csproj">
-      <Project>{D92CA3B9-935E-7DA2-F9E3-55FF62F27823}</Project>
+      <Project>{75E6ECBF-A7E4-4961-C957-4F277FB3BE9F}</Project>
       <Name>Unity.TextMeshPro.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.VisualStudio.Editor.csproj">
-      <Project>{292A5E36-34E5-4C50-DEFA-5EBA63C1B6FA}</Project>
+      <Project>{50F85514-538E-7F36-CA8F-B30F9FD08F3B}</Project>
       <Name>Unity.VisualStudio.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Timeline.Editor.csproj">
-      <Project>{8A269522-3F3C-AD48-70BE-A36124A2D03B}</Project>
+      <Project>{E057A07C-3720-6421-4C6C-58A2939BD826}</Project>
       <Name>Unity.Timeline.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Timeline.csproj">
-      <Project>{F0B062CB-F6B5-C04A-AE93-01FC131F5E41}</Project>
+      <Project>{70F9B370-2FD9-7B3D-D9B4-E142FC61D938}</Project>
       <Name>Unity.Timeline</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.TextMeshPro.csproj">
-      <Project>{51972ACB-31EC-E13F-E422-EB769D7ECB0D}</Project>
+      <Project>{E2FBB974-B146-F576-E0E6-E3851314B2FC}</Project>
       <Name>Unity.TextMeshPro</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Rider.Editor.csproj">
-      <Project>{6B1A49E6-1599-74C8-2D03-0385C432CC1C}</Project>
+      <Project>{E8943A6A-FBEB-035A-9292-010C233980C9}</Project>
       <Name>Unity.Rider.Editor</Name>
     </ProjectReference>
   </ItemGroup>

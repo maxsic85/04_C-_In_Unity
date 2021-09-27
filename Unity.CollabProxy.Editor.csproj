@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{65AAF8E3-FC3B-EADB-9684-C389D274CBCB}</ProjectGuid>
+    <ProjectGuid>{983F08E4-F6D1-23AB-87DD-9FA2516DC381}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Unity.CollabProxy.Editor</AssemblyName>
@@ -779,11 +779,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="UnityEngine.TestRunner.csproj">
-      <Project>{2FF31ECC-D38E-0C31-C0E0-910E34BE723B}</Project>
+      <Project>{83A3013A-071B-44CF-50C8-051E1F554067}</Project>
       <Name>UnityEngine.TestRunner</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEditor.TestRunner.csproj">
-      <Project>{6F049D9E-9320-F176-6939-DCE861336605}</Project>
+      <Project>{2EC8A3FD-BA50-08A1-6EFF-778BF568107F}</Project>
       <Name>UnityEditor.TestRunner</Name>
     </ProjectReference>
   </ItemGroup>
