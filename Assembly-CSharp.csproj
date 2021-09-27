@@ -56,31 +56,61 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Code\Core\CameraMove.cs" />
-    <Compile Include="Assets\Code\Meta\IBoost.cs" />
+    <Compile Include="Assets\Code\MVC\Interfaces\IPlayer.cs" />
+    <Compile Include="Assets\Code\MVC\Interfaces\IFire.cs" />
+    <Compile Include="Assets\Code\MVC\Controllers\GameStarter.cs" />
     <Compile Include="Assets\Code\Generetion\Interfaces\IShuffleGeneretion.cs" />
+    <Compile Include="Assets\Code\MVC\Controllers\EnemyInitialisation.cs" />
+    <Compile Include="Assets\Code\MVC\Enemies\EnemyProvider.cs" />
     <Compile Include="Assets\Code\Generetion\Interfaces\IMapGeneretion.cs" />
-    <Compile Include="Assets\Code\Core\Player1.cs" />
-    <Compile Include="Assets\Code\Core\Interfaces\IKeybordMove.cs" />
-    <Compile Include="Assets\Code\Core\Enemy.cs" />
-    <Compile Include="Assets\Code\Core\Interfaces\Imove.cs" />
-    <Compile Include="Assets\Code\Core\Interfaces\IPlayerMove.cs" />
-    <Compile Include="Assets\Code\Core\Interfaces\IDamageble.cs" />
-    <Compile Include="Assets\Code\Meta\IDropBoost.cs" />
+    <Compile Include="Assets\Code\MVC\Boost\BoostFactory.cs" />
+    <Compile Include="Assets\Code\MVC\Interfaces\IInitialisation.cs" />
+    <Compile Include="Assets\Code\MVC\Interfaces\IExecute.cs" />
+    <Compile Include="Assets\Code\MVC\Interfaces\IBuilet.cs" />
+    <Compile Include="Assets\Code\MVC\Interfaces\IKeybordMove.cs" />
+    <Compile Include="Assets\Code\MVC\Builet\BuiletProvider.cs" />
+    <Compile Include="Assets\Code\MVC\Interfaces\Imove.cs" />
+    <Compile Include="Assets\Code\MVC\Interfaces\IPlayerMove.cs" />
+    <Compile Include="Assets\Code\MVC\Data\BoostData.cs" />
+    <Compile Include="Assets\Code\MVC\VIEW\DisplayData.cs" />
+    <Compile Include="Assets\Code\MVC\Controllers\DamageController.cs" />
     <Compile Include="Assets\Code\Generetion\ShuffleArray.cs" />
-    <Compile Include="Assets\Code\Core\Interfaces\IDrawSectorVisibility.cs" />
+    <Compile Include="Assets\Code\MVC\Interfaces\IDrawSectorVisibility.cs" />
+    <Compile Include="Assets\Code\MVC\Enemies\EnemyMoveController.cs" />
     <Compile Include="Assets\Code\Generetion\Interfaces\IEnemyGeneretion.cs" />
+    <Compile Include="Assets\Code\MVC\Controllers\PlayerController.cs" />
     <Compile Include="Assets\Code\Generetion\ShuffleMapGeneretion.cs" />
-    <Compile Include="Assets\Code\Meta\DisplayEvvents.cs" />
-    <Compile Include="Assets\Code\Generetion\Wall.cs" />
+    <Compile Include="Assets\Code\MVC\Interfaces\IEnemyFactory.cs" />
+    <Compile Include="Assets\Code\MVC\Enemies\CompositeMove.cs" />
+    <Compile Include="Assets\Code\MVC\VIEW\DisplayEvvents.cs" />
+    <Compile Include="Assets\Code\MVC\Controllers\BoostInitialisation.cs" />
+    <Compile Include="Assets\Code\MVC\Interfaces\IController.cs" />
+    <Compile Include="Assets\Code\MVC\Data\BuiletData.cs" />
+    <Compile Include="Assets\Code\MVC\Interfaces\IBuiletFactory.cs" />
+    <Compile Include="Assets\Code\MVC\Enemies\EnemyFactory.cs" />
     <Compile Include="Assets\Code\Generetion\MapGenerator.cs" />
-    <Compile Include="Assets\Code\Generetion\EnemyGeneretion.cs" />
-    <Compile Include="Assets\Code\Core\Player.cs" />
-    <Compile Include="Assets\Code\Core\KeyController.cs" />
-    <Compile Include="Assets\Code\Meta\Boost.cs" />
-    <Compile Include="Assets\Code\Meta\DisplayData.cs" />
+    <Compile Include="Assets\Code\MVC\Controllers\TestLogController.cs" />
+    <Compile Include="Assets\Code\MVC\Interfaces\IEnemy.cs" />
+    <Compile Include="Assets\Code\MVC\Controllers\Controllers.cs" />
+    <Compile Include="Assets\Code\MVC\Controllers\CameraContrpller.cs" />
+    <Compile Include="Assets\Code\MVC\Player\PlayerFactory.cs" />
+    <Compile Include="Assets\Code\MVC\Controllers\GameInitialisation.cs" />
+    <Compile Include="Assets\Code\MVC\Player\Player.cs" />
+    <Compile Include="Assets\Code\MVC\Data\PlayerData.cs" />
+    <Compile Include="Assets\Code\MVC\Interfaces\IBoostFactory.cs" />
+    <Compile Include="Assets\Code\MVC\Builet\BuiletFactory.cs" />
+    <Compile Include="Assets\Code\MVC\Controllers\PlayerInitialisation.cs" />
+    <Compile Include="Assets\Code\MVC\Controllers\KeyController.cs" />
+    <Compile Include="Assets\Code\MVC\Interfaces\IDamageble.cs" />
+    <Compile Include="Assets\Code\MVC\Interfaces\IPlayerFactory.cs" />
+    <Compile Include="Assets\Code\MVC\Data\EnemyData.cs" />
+    <Compile Include="Assets\Code\MVC\Boost\Boost.cs" />
+    <Compile Include="Assets\Code\MVC\VIEW\ITextaData.cs" />
+    <Compile Include="Assets\Code\MVC\VIEW\TextData.cs" />
+    <Compile Include="Assets\Code\MVC\VIEW\TextController.cs" />
   </ItemGroup>
   <ItemGroup>
+     <None Include="Assets\Tasks.txt" />
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
@@ -639,35 +669,42 @@
     <Reference Include="System.Xml.Serialization">
       <HintPath>C:\Program Files\Unity\Editor\Data\NetStandard\compat\2.0.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VSCode.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualStudio.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Timeline.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Timeline">
-      <HintPath>Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro">
-      <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Rider.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Unity.VSCode.Editor.csproj">
+      <Project>{297BB5F1-561C-668B-17CD-43613472C384}</Project>
+      <Name>Unity.VSCode.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.TextMeshPro.Editor.csproj">
+      <Project>{D92CA3B9-935E-7DA2-F9E3-55FF62F27823}</Project>
+      <Name>Unity.TextMeshPro.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.VisualStudio.Editor.csproj">
+      <Project>{292A5E36-34E5-4C50-DEFA-5EBA63C1B6FA}</Project>
+      <Name>Unity.VisualStudio.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Timeline.Editor.csproj">
+      <Project>{8A269522-3F3C-AD48-70BE-A36124A2D03B}</Project>
+      <Name>Unity.Timeline.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Timeline.csproj">
+      <Project>{F0B062CB-F6B5-C04A-AE93-01FC131F5E41}</Project>
+      <Name>Unity.Timeline</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.TextMeshPro.csproj">
+      <Project>{51972ACB-31EC-E13F-E422-EB769D7ECB0D}</Project>
+      <Name>Unity.TextMeshPro</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Rider.Editor.csproj">
+      <Project>{6B1A49E6-1599-74C8-2D03-0385C432CC1C}</Project>
+      <Name>Unity.Rider.Editor</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

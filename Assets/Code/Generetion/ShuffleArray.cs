@@ -1,6 +1,5 @@
 namespace Max.Generetion
 {
-
     internal static class ShuffleArray
     {
         internal static T[] Shuffle<T>(T[] array, int seed)
