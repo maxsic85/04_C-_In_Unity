@@ -6,7 +6,7 @@ using UnityEngine.AI;
 /// <summary>
 /// 
 /// </summary>
-public  class EnemyProvider : MonoBehaviour, IEnemy, IDisposable
+public  class EnemyProvider : GizmosObjects, IEnemy, IDisposable
 {
     private NavMeshAgent _agent;
     [SerializeField] private float _speed;

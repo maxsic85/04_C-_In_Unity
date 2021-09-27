@@ -1,9 +1,9 @@
 <Player>
   <Name value="Max">
-    <Test X="1,781712" Y="0,05" Z="10,67296" />
+    <Test X="3,195582" Y="0,05" Z="14,51097" />
   </Name>
-  <PosX value="1,781712" />
+  <PosX value="3,195582" />
   <PosY value="0,05" />
-  <PosZ value="10,67296" />
+  <PosZ value="14,51097" />
   <Info Unity="2020.2.7f1">System Language: Russian</Info>
 </Player>

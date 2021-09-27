@@ -168,6 +168,7 @@ namespace Max.Generetion
         public Coord _mapSize;
         [Range(0, 1)]
         public float _obtaclePercent;
+  
         public int _seed;
         public float _minObtacleHeight;
         public float _maxObtacleHeight;

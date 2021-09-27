@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Code\MVC\Interfaces\IPlayer.cs" />
+    <Compile Include="Assets\Code\MVC\Radar\RadarProvider.cs" />
     <Compile Include="Assets\Code\MVC\Interfaces\IFire.cs" />
     <Compile Include="Assets\Code\MVC\Controllers\GameStarter.cs" />
     <Compile Include="Assets\Code\MVC\Controllers\MapController.cs" />
@@ -74,7 +75,9 @@
     <Compile Include="Assets\Code\MVC\Interfaces\IExecute.cs" />
     <Compile Include="Assets\Code\MVC\Interfaces\IBuilet.cs" />
     <Compile Include="Assets\Code\MVC\Interfaces\IKeybordMove.cs" />
+    <Compile Include="Assets\Code\MVC\Controllers\RadarController.cs" />
     <Compile Include="Assets\Code\MVC\Builet\BuiletProvider.cs" />
+    <Compile Include="Assets\Code\MVC\Radar\RadarObject.cs" />
     <Compile Include="Assets\Code\MVC\Interfaces\Imove.cs" />
     <Compile Include="Assets\Code\MVC\Interfaces\IPlayerMove.cs" />
     <Compile Include="Assets\Code\MVC\Data\BoostData.cs" />
@@ -102,6 +105,7 @@
     <Compile Include="Assets\Code\MVC\Controllers\TestLogController.cs" />
     <Compile Include="Assets\Code\MVC\Interfaces\IEnemy.cs" />
     <Compile Include="Assets\Code\MVC\Controllers\Controllers.cs" />
+    <Compile Include="Assets\Code\MVC\Radar\RadarMarker.cs" />
     <Compile Include="Assets\Code\MVC\Controllers\CameraContrpller.cs" />
     <Compile Include="Assets\Code\MVC\Player\PlayerFactory.cs" />
     <Compile Include="Assets\Code\MVC\Controllers\GameInitialisation.cs" />
@@ -118,10 +122,8 @@
     <Compile Include="Assets\Code\MVC\Interfaces\IPlayerFactory.cs" />
     <Compile Include="Assets\Code\MVC\Data\EnemyData.cs" />
     <Compile Include="Assets\Code\MVC\Boost\Boost.cs" />
-    <Compile Include="Assets\Code\MVC\Controllers\RadarController.cs" />
-    <Compile Include="Assets\Code\MVC\Radar\RadarProvider.cs" />
-    <Compile Include="Assets\Code\MVC\Radar\RadarObject.cs" />
-    <Compile Include="Assets\Code\MVC\Radar\RadarMarker.cs" />
+    <Compile Include="Assets\Code\GizmosObjects.cs" />
+    <Compile Include="Assets\Code\PathToBot.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Tasks.txt" />
