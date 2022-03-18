@@ -1,4 +1,4 @@
-using Max.Generetion;
+using Labirint.Generation;
 using UnityEditor;
 using UnityEngine;
 

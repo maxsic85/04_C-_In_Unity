@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-namespace Max.Core
+namespace Labirint.Core
 {
     public interface Imove
     {

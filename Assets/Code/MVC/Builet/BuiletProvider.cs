@@ -1,5 +1,5 @@
 ﻿using System;
-using Max.Core;
+using Labirint.Core;
 using UnityEngine;
 
 public class BuiletProvider : MonoBehaviour,IBuilet

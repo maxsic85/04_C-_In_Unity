@@ -1,26 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public sealed class PlayerInitialisation : IInitialisation
+namespace Labirint.Core
 {
-    private readonly IPlayerFactory _playerFactory;
-   
-
-    public PlayerInitialisation(IPlayerFactory playerFactoryr)
+    public sealed class PlayerInitialisation 
     {
-        _playerFactory = playerFactoryr;
-        _playerFactory.CreatePlayer();
-      
-    }
+        private readonly IPlayerFactory _playerFactory;
 
-    //public Transform GetPlayer()
-    //{ 
-  
-    //}
-
-    public void Initialization()
-    {
-        throw new System.NotImplementedException();
+        public PlayerInitialisation(IPlayerFactory playerFactoryr)
+        {
+            _playerFactory = playerFactoryr;
+            _playerFactory.CreatePlayer();
+        }
     }
 }

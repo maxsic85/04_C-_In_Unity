@@ -1,41 +1,39 @@
-using Max.Core;
-using System.Collections;
-using System.Collections.Generic;
+using Labirint.Core;
+using System;
 using UnityEngine;
 
-public class PlayerData
+namespace Labirint.Data
 {
-    public string _path { get; private set; } = "Prefabs/Core/Player";
-    public int _baseSpeed { get;  } = 2;
-    public int _baseNoise { get; } = 2;
-    public int _baseDamage { get; } = 2;
-    public LayerMask _mask { get;  } = LayerMask.GetMask("Wall");
-    public GameObject _player;
-
-
-    public PlayerData()
+    public sealed class PlayerData
     {
-        _player = (GameObject)Resources.Load(_path);
-    }
-
-    public PlayerData(string path, int speed, int noise, int damage, LayerMask mask)
-    {
-        this._path = path;
-        this._baseSpeed = speed;
-        this._baseNoise = noise;
-        this._baseDamage = damage;
-        this._mask = mask;
-        _player = (GameObject)Resources.Load(_path);
-    }
+        public string _path { get; private set; } = "Prefabs/Core/Player";
+        public int _baseSpeed { get; } = 2;
+        public int _baseNoise { get; } = 2;
+        public int _baseDamage { get; } = 2;
+        public LayerMask _mask { get; } = LayerMask.GetMask("Wall");
+        public GameObject _player;
 
 
-    public Player GetPlayer()
-    {
-     
-        if (_player == null)
+        public PlayerData()
         {
-            //    throw new InvalidOperationException($"Enemy type not found");
+            _player = (GameObject)Resources.Load(_path);
         }
-        return _player.GetComponent<Player>();
+        public Player GetPlayer()
+        {
+            if (_player == null)
+            {
+                throw new InvalidOperationException($"Player type not found");
+            }
+            return _player.GetComponent<Player>();
+        }
+
+        public GameObject PlayerOnSceene()
+        {
+            if (_player == null)
+            {
+                throw new InvalidOperationException($"Player type not found");
+            }
+            return GameObject.FindObjectOfType<Player>().gameObject ;
+        }
     }
 }

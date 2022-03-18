@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace Max.Generetion
+namespace Labirint.Generation
 {
     public class MapGenerator : MonoBehaviour
     {
@@ -13,7 +11,7 @@ namespace Max.Generetion
             // IMapGeneretion map = new ShuffleMapGeneretion();
             //map.GeneretMap();
             Generator.GetComponent<IMapGeneretion>().GeneretMap();
-           
+
         }
 
     }

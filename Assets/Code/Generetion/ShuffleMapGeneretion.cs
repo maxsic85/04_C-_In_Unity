@@ -1,7 +1,8 @@
+using Max.Generetion;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Max.Generetion
+namespace Labirint.Generation
 {
     public class ShuffleMapGeneretion : MonoBehaviour, IShuffleGeneretion
     {
@@ -61,7 +62,7 @@ namespace Max.Generetion
             }
 
             // Spawn Obstacle
-            bool[,] _obstacleMap = new bool[(int)_currentMap._mapSize.x, (int)_currentMap._mapSize.y];
+            bool[,] _obstacleMap = new bool[_currentMap._mapSize.x, _currentMap._mapSize.y];
             int _obstacleCount = (int)(_currentMap._mapSize.x * _currentMap._mapSize.y * _currentMap._obtaclePercent);
             int _currentObstacleCount = 0;
             List<Coord> _allFreeCoord = new List<Coord>(_allTileCoords);
@@ -131,7 +132,7 @@ namespace Max.Generetion
                     }
                 }
             }
-            int _targetAccesibleTileCount = (int)(_currentMap._mapSize.x * _currentMap._mapSize.y - currentObstacleCnt);
+            int _targetAccesibleTileCount = _currentMap._mapSize.x * _currentMap._mapSize.y - currentObstacleCnt;
             return _targetAccesibleTileCount == _accessibleTileCnt;
         }
         Vector3 CoordToPosition(int x, int y)
@@ -168,7 +169,7 @@ namespace Max.Generetion
         public Coord _mapSize;
         [Range(0, 1)]
         public float _obtaclePercent;
-  
+
         public int _seed;
         public float _minObtacleHeight;
         public float _maxObtacleHeight;
@@ -180,10 +181,11 @@ namespace Max.Generetion
 
         public Coord _mapStart
         {
-            get => new Coord(0,0);
+            get => new Coord(0, 0);
         }
 
     }
+
     [System.Serializable]
     public struct Coord
     {
@@ -195,7 +197,7 @@ namespace Max.Generetion
             y = _y;
         }
 
-        public static bool operator ==(Coord c1, Coord c2) => (c1.x == c2.x && c1.y == c2.y);
+        public static bool operator ==(Coord c1, Coord c2) => c1.x == c2.x && c1.y == c2.y;
 
         public static bool operator !=(Coord c1, Coord c2) => !(c1 == c2);
     }

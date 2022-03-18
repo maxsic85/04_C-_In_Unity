@@ -1,27 +1,27 @@
-
-using System.Collections;
-using System.Collections.Generic;
+using Labirint.Data;
 using UnityEngine;
 
-public class BoostFactory : IBoostFactory
+namespace Labirint.Core
 {
-    private readonly BoostData _boostData;
-    Transform[] _position;
-    GameObject[] _go;
-    public BoostFactory(BoostData boostData, Transform[] position)
+    public class BoostFactory : IBoostFactory
     {
-        _boostData = boostData;
-        _position = position;
-        _go = new GameObject[_position.Length];
-    }
-
-    public GameObject[] CreateBoost()
-    {     
-        for (int i = 0; i < _position.Length; i++)
+        private readonly BoostData _boostData;
+        Transform[] _boostPosition;
+        GameObject[] _boostGameobjectsOnSceene;
+        public BoostFactory(BoostData boostData, Transform[] position)
         {
-            _go[i] = (GameObject)GameObject.Instantiate(Resources.Load(_boostData._path), _position[i].position, Quaternion.identity);
-           // _go[i].AddComponent<Max.Meta.Boost>();
+            _boostData = boostData;
+            _boostPosition = position;
+            _boostGameobjectsOnSceene = new GameObject[_boostPosition.Length];
         }
-        return _go;
+
+        public GameObject[] CreateBoost()
+        {
+            for (int i = 0; i < _boostPosition.Length; i++)
+            {
+                _boostGameobjectsOnSceene[i] = (GameObject)Object.Instantiate(Resources.Load(_boostData._path), _boostPosition[i].position, Quaternion.identity);
+            }
+            return _boostGameobjectsOnSceene;
+        }
     }
 }

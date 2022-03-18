@@ -6,4 +6,9 @@ public class InputData : ScriptableObject
 {
     public KeyCode SavePlayer = KeyCode.C;
     public KeyCode LoadPlayer = KeyCode.V;
+    public KeyCode FireAxis = KeyCode.Space;
+    public string HorizontalAxis = "Horizontal";
+    public string VerticalAxis = "Vertical";
+
+
 }

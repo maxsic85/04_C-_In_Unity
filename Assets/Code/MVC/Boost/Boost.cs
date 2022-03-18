@@ -1,3 +1,4 @@
+using Labirint.Core;
 using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -45,7 +46,7 @@ namespace Max.Meta
         }
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.GetComponent<Core.Player>() != null)
+            if (other.gameObject.GetComponent<Player>() != null)
             {
               //  var addComponent = gameObject.GetComponent<Boost>();
                 //addComponent._boostEvent += () =>

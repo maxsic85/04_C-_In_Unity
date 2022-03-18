@@ -1,19 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public sealed class BoostInitialisation : IInitialisation
+namespace Labirint.Core
 {
-    private readonly IBoostFactory _boostFactory;
-
-    public BoostInitialisation(IBoostFactory boostFactory)
+    public sealed class BoostInitialisation
     {
-        _boostFactory = boostFactory;
-        _boostFactory.CreateBoost();
-    }
+        private readonly IBoostFactory _boostFactory;
 
-    public void Initialization()
-    {
-        throw new System.NotImplementedException();
+        public BoostInitialisation(IBoostFactory boostFactory)
+        {
+            _boostFactory = boostFactory;
+            _boostFactory.CreateBoost();
+        }
+
     }
 }

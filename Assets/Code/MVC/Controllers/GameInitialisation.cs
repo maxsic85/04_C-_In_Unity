@@ -1,50 +1,60 @@
-using Max.Core;
-using Max.Generetion;
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
-using System;
-using Assets.Code.MVC.VIEW;
+using Labirint.Constants;
+using Labirint.Generation;
+using Labirint.View;
+using Labirint.Data;
+using Labirint.Save;
 
-public sealed class GameInitialisation
+namespace Labirint.Core
 {
-    ShuffleMapGeneretion _levelGenerator;
-    Vector3 c_offset = new Vector3(0, 0.05f, 0);
-    public GameInitialisation(Controllers _controllers, InputData inputData, MiniMapData mapdata, RadarData radarData)
+    public sealed class GameInitialisation
     {
-        PlayerData _dataPlayer = new PlayerData();
-        EnemyData _dataEnemy = new EnemyData();
-        BoostData _boostData = new BoostData();
-        ITextaData text = UnityEngine.Object.FindObjectOfType<TextData>();
-        ISavePlayerPosition _save = new SaveDataRep();
+
+        public GameInitialisation(Controllers _controllers, InputData inputData, MiniMapData mapdata, RadarData radarData, IMapGeneretion levelGenerator, Camera camera)
+        {
+            PlayerData dataPlayer = new PlayerData();
+            EnemyData dataEnemy = new EnemyData();
+            BoostData boostData = new BoostData();
+            BuiletData fireData = new BuiletData();
+
+            ITextaData text = Object.FindObjectOfType<TextData>();
+            ISavePlayerPosition _savePlayerPosition = new SavePlayer();
+            levelGenerator.GeneretMap();
+
+            //  Transform _enemyPosition = levelGenerator.GetRandomOpenTile();
+            Transform[] _boostPosition = { levelGenerator.GetRandomOpenTile() };
 
 
+            var playerFactory = new PlayerFactory(dataPlayer, ShuffleMapGeneretion._mapStart + GameConstants.PLAYER_OFFSET);
+            var playerInitialization = new PlayerInitialisation(playerFactory);
+            var player = dataPlayer.PlayerOnSceene().transform;
 
-        _levelGenerator = GameObject.FindObjectOfType<ShuffleMapGeneretion>();
-        Transform _enemyPosition = _levelGenerator.GetRandomOpenTile();
-        Transform[] _boostPosition = { _levelGenerator.GetRandomOpenTile() };  //œ–» √≈Õ≈–¿÷»» > 1 ﬁÕ»“¿ —Œ¡€“»≈  Œ“–¿¡¿“€¬¿≈“ “ŒÀ‹ Œ Õ¿ ŒƒÕŒÃ
+            var enemyFactory = new EnemyFactory(dataEnemy);
+            var enemyInitialization = new EnemyInitialisation(enemyFactory, 3);
+
+            var boostFactory = new BoostFactory(boostData, _boostPosition);
+            var boostInitialization = new BoostInitialisation(boostFactory);
+
+            IPCKeybordInput input = new PCInput(inputData);
+            var inputController = new InputController(input);
+            var playerMoveController = new PlayerMoveController(inputController, dataPlayer, player, dataPlayer._mask);
+
+            var bulletFactory = new BuiletFactory(fireData);
+            var playerShootController = new PlayerShootController(inputController, fireData, bulletFactory, player);
+
+            var saveController = new SaveController(_savePlayerPosition,inputController,player);
 
 
-        var playerFactory = new PlayerFactory(_dataPlayer, ShuffleMapGeneretion._mapStart + c_offset);
-        var playerInitialization = new PlayerInitialisation(playerFactory);
-
-        var enemyFactory = new EnemyFactory(_dataEnemy);
-        var enemyInitialization = new EnemyInitialisation(enemyFactory);
-
-        var boostFactory = new BoostFactory(_boostData, _boostPosition);
-        var boostInitialization = new BoostInitialisation(boostFactory);
-
-        var _camera = Camera.main.transform;
-        var _player = GameObject.FindObjectOfType<Player>().transform;
-
-
-        _controllers.Add(new TestLogController());
-        _controllers.Add(new CameraContrpller(_player, _camera));
-        _controllers.Add(new PlayerController(_player, _dataPlayer._baseSpeed, _dataPlayer._mask, inputData, _save));
-        _controllers.Add(new EnemyMoveController(enemyInitialization.GetMoveEnemies(), _player.gameObject.transform));
-        _controllers.Add(new DamageController(10, _player.gameObject));
-        _controllers.Add(new MapController(mapdata, _player));
-        _controllers.Add(new RadarController(radarData, _player));
-        _controllers.Add(new TextController(_dataPlayer, text));
+            _controllers.Add(new CameraController(player, camera.transform));
+            _controllers.Add(playerMoveController);
+            _controllers.Add(playerShootController);
+            _controllers.Add(saveController);
+            _controllers.Add(new EnemyMoveController(enemyInitialization.GetMoveEnemies(), player));
+            _controllers.Add(new DamageController(10, player.gameObject));
+            _controllers.Add(new MapController(mapdata, player));
+            _controllers.Add(new RadarController(radarData, player));
+            _controllers.Add(new TextController(dataPlayer, text));
+        }
     }
 }

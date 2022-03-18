@@ -1,10 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-public  interface ISavePlayerPosition
+namespace Labirint.Save
+{
+    public interface ISavePlayerPosition
     {
-    void Save(Vector3 position);
-    void Load(Vector3 position);
-    public event Action<Vector3> OnLoadPosition;
+        void SavePlayerPosition(Vector3 position);
+        void LoadPlayerPosition(Vector3 position);
+        public event Action<Vector3> OnLoadPosition;
     }
-
+}

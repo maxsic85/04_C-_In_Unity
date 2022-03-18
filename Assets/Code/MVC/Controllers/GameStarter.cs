@@ -1,29 +1,30 @@
-using System.Collections;
-using System.Collections.Generic;
+using Labirint.Generation;
 using UnityEngine;
-using Assets.Code.MVC.VIEW;
-public class GameStarter : MonoBehaviour
+
+namespace Labirint.Core
 {
-
-    public Controllers _controllers;
-    [SerializeField] private InputData _inputData;
-    [SerializeField] private MiniMapData _mapData;
-    [SerializeField] private RadarData _radarData;
-
-    // Start is called before the first frame update
-    void Start()
+    public class GameStarter : MonoBehaviour
     {
-        this.gameObject.GetOrAddComponent<SomeExtenshion>();
-        _controllers = new Controllers();
-        new GameInitialisation(_controllers, _inputData, _mapData,_radarData);
-        _controllers.Initialization();
 
-    }
+        public Controllers _controllers;
+        [SerializeField] private Camera _camera;
+        [SerializeField] private InputData _inputData;
+        [SerializeField] private MiniMapData _mapData;
+        [SerializeField] private RadarData _radarData;
+        private ShuffleMapGeneretion _levelGenerator;
+        void Start()
+        {
+            _controllers = new Controllers();
+            _levelGenerator = FindObjectOfType<ShuffleMapGeneretion>();
+            new GameInitialisation(_controllers, _inputData, _mapData, _radarData, _levelGenerator, _camera);
+            _controllers.Initialization();
 
-    // Update is called once per frame
-    private void Update()
-    {
-        var deltaTime = Time.deltaTime;
-        _controllers.Execute(deltaTime);
+        }
+
+        private void Update()
+        {
+            var deltaTime = Time.deltaTime;
+            _controllers.Execute(deltaTime);
+        }
     }
 }

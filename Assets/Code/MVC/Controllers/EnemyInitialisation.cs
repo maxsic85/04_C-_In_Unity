@@ -1,55 +1,48 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Max.Core;
-using Max.Generetion;
-using System;
-public sealed class EnemyInitialisation : IInitialisation
+using Labirint.Generation;
+
+namespace Labirint.Core
 {
-    private readonly IEnemyFactory _enemyFactory;
-    private CompositeMove _enemy;
-    private List<IEnemy> _enemies;
-    ShuffleMapGeneretion _levelGenerator;
-
-    public List<IEnemy> Enemies { get => _enemies; set => _enemies = value; }
-
-    public EnemyInitialisation(IEnemyFactory enemyFactory)
-    {      
-        _enemyFactory = enemyFactory;
-        _enemy = new CompositeMove();
-    
-        _levelGenerator = GameObject.FindObjectOfType<ShuffleMapGeneretion>();
-        var currentEnemy = _enemyFactory.CreateEnemy(_levelGenerator.GetRandomOpenTile());
-        var currentEnemy2 = _enemyFactory.CreateEnemy(_levelGenerator.GetRandomOpenTile());
-        _enemy.AddUnit(currentEnemy);
-        _enemy.AddUnit(currentEnemy2);
-        _enemies = new List<IEnemy>();
-        //{
-        //    currentEnemy,
-        //    currentEnemy2
-
-        //};
-
-    }
-
-    public Imove GetMoveEnemies()
+    public sealed class EnemyInitialisation
     {
-        return _enemy;
-    }
+        private readonly IEnemyFactory _enemyFactory;
+        private CompositeMove _enemy;
+        private List<IEnemy> _enemies;
+        IMapGeneretion _levelGenerator;
 
-    public IEnumerable<IEnemy> GetEnemies()
-    {
-        foreach (var item in _enemies)
+        public List<IEnemy> Enemies => _enemies;
+
+        public EnemyInitialisation(IEnemyFactory enemyFactory, int enemyCnt)
         {
+            _enemyFactory = enemyFactory;
+            _enemy = new CompositeMove();
 
-          
-
-            yield return item;
+            _levelGenerator = Object.FindObjectOfType<ShuffleMapGeneretion>();
+            _enemies = new List<IEnemy>();
+            InitEnemy(enemyCnt);
         }
-    }
 
-    public void Initialization()
-    {
+        private void InitEnemy(int enemyCnt)
+        {
+            for (int i = 0; i < enemyCnt; i++)
+            {
+                _enemies.Add(_enemyFactory.CreateEnemy(_levelGenerator.GetRandomOpenTile()));
+                _enemy.AddUnit(_enemies[i]);
+            }
+        }
 
+        public Imove GetMoveEnemies()
+        {
+            return _enemy;
+        }
+
+        public IEnumerable<IEnemy> GetEnemies()
+        {
+            foreach (var item in _enemies)
+            {
+                yield return item;
+            }
+        }
     }
 }

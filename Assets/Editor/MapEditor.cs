@@ -1,13 +1,14 @@
+using Labirint.Generation;
 using UnityEditor;
 
 namespace Max.Generetion
 {
-    [CustomEditor(typeof(Max.Generetion.ShuffleMapGeneretion))]
+    [CustomEditor(typeof(ShuffleMapGeneretion))]
     public class MapEditor : Editor
     {
         public override void OnInspectorGUI()
         {
-                    Max.Generetion.ShuffleMapGeneretion map = target as Max.Generetion.ShuffleMapGeneretion;
+            ShuffleMapGeneretion map = target as ShuffleMapGeneretion;
             base.OnInspectorGUI();
       
 

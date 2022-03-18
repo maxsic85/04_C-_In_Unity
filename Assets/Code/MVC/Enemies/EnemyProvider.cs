@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using Max.Core;
 using System;
 using UnityEngine.AI;
+using Labirint.Core;
 /// <summary>
 /// 
 /// </summary>
@@ -27,7 +27,7 @@ public  class EnemyProvider : GizmosObjects, IEnemy, IDisposable
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<Max.Core.Player>() != null)
+        if (other.gameObject.GetComponent<Player>() != null)
         {
             Debug.Log("TARAN");
         }

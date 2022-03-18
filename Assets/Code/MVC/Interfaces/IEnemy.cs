@@ -1,5 +1,5 @@
 ﻿using System;
-using Max.Core;
+using Labirint.Core;
 
 public interface IEnemy : Imove
 {

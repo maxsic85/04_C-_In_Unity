@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Max.Core;
+using Labirint.Core;
+
 public class EnemyMoveController : IExecute
 {
     private readonly Imove _move;
