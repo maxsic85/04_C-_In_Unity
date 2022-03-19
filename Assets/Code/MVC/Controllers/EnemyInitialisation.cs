@@ -7,18 +7,16 @@ namespace Labirint.Core
     public sealed class EnemyInitialisation
     {
         private readonly IEnemyFactory _enemyFactory;
-        private CompositeMove _enemy;
+        private Imoveble _moveSystem;
         private List<IEnemy> _enemies;
-        IMapGeneretion _levelGenerator;
-
+        private readonly IMapGeneretion _levelGenerator;
         public List<IEnemy> Enemies => _enemies;
 
-        public EnemyInitialisation(IEnemyFactory enemyFactory, int enemyCnt)
+        public EnemyInitialisation(IEnemyFactory enemyFactory, int enemyCnt, Imoveble imoveble, IMapGeneretion levelGenerator)
         {
             _enemyFactory = enemyFactory;
-            _enemy = new CompositeMove();
-
-            _levelGenerator = Object.FindObjectOfType<ShuffleMapGeneretion>();
+            _moveSystem = imoveble;
+            _levelGenerator =levelGenerator;
             _enemies = new List<IEnemy>();
             InitEnemy(enemyCnt);
         }
@@ -28,13 +26,13 @@ namespace Labirint.Core
             for (int i = 0; i < enemyCnt; i++)
             {
                 _enemies.Add(_enemyFactory.CreateEnemy(_levelGenerator.GetRandomOpenTile()));
-                _enemy.AddUnit(_enemies[i]);
+                _moveSystem.AddUnit(_enemies[i]);
             }
         }
 
-        public Imove GetMoveEnemies()
+        public Imoveble GetMoveEnemies()
         {
-            return _enemy;
+            return _moveSystem;
         }
 
         public IEnumerable<IEnemy> GetEnemies()

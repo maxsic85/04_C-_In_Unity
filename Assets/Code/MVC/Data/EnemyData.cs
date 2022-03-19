@@ -1,3 +1,4 @@
+using Labirint.View;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,8 @@ namespace Labirint.Data
         public int _baseSpeed { get; private set; } = 1;
         public int _baseAreaVisible { get; private set; } = 1;
         public int _baseDamage { get; private set; } = 1;
+
+        public int _enemyCntOnScene { get; private set; } = 3;
 
         public GameObject _prefab;
 

@@ -1,24 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Labirint.Core;
 
 public class EnemyMoveController : IExecute
 {
-    private readonly Imove _move;
-    private readonly Transform _target;
+    private readonly Imoveble _movebleObjects;
+    private readonly Transform _targetPosition;
 
-    public EnemyMoveController(Imove move, Transform target)
+    public EnemyMoveController(Imoveble move, Transform target)
     {
-        _move = move;
-        _target = target;
+        _movebleObjects = move;
+        _targetPosition = target;
     }
 
     public void Execute(float deltaTime)
     {
-        _move?.Move(_target.localPosition);
+        _movebleObjects?.Move(_targetPosition.localPosition);
       
     }
-
-  
+ 
 }

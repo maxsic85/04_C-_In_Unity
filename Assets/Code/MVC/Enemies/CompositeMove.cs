@@ -3,25 +3,24 @@ using UnityEngine;
 
 namespace Labirint.Core
 {
-    class CompositeMove : Imove
+    class CompositeMove : Imoveble,IMoveInitialising
     {
-        public List<Imove> _imoves = new List<Imove>();
+        public List<Imoveble> _imoves = new List<Imoveble>();
 
         public void Move(Vector3 point)
         {
             for (var i = 0; i < _imoves.Count; i++)
             {
                 _imoves[i].Move(point);
-                Debug.Log(_imoves.Count);
             }
         }
 
-        public void AddUnit(Imove unit)
+        public void AddUnit(Imoveble unit)
         {
             _imoves.Add(unit);
         }
 
-        public void RemoveUnit(Imove unit)
+        public void RemoveUnit(Imoveble unit)
         {
             _imoves.Remove(unit);
         }

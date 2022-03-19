@@ -3,11 +3,11 @@ using UnityEngine;
 
 namespace Labirint.Core
 {
-    public class BoostFactory : IBoostFactory
+    public sealed class BoostFactory : IBoostFactory
     {
         private readonly BoostData _boostData;
-        Transform[] _boostPosition;
-        GameObject[] _boostGameobjectsOnSceene;
+        private Transform[] _boostPosition;
+        private GameObject[] _boostGameobjectsOnSceene;
         public BoostFactory(BoostData boostData, Transform[] position)
         {
             _boostData = boostData;

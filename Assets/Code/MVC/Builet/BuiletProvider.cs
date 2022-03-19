@@ -1,31 +1,22 @@
-﻿using System;
-using Labirint.Core;
+﻿using Labirint.Core;
 using UnityEngine;
 
-public class BuiletProvider : MonoBehaviour,IBuilet
+namespace Labirint.View
 {
-   
-
-
-    void Start() 
+    public class BuiletProvider : MonoBehaviour, IBuilet
     {
-     
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.GetComponent<Collider>() != null && !other.gameObject.GetComponent<Player>())
+        void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.GetComponent<EnemyProvider>())
+            if (other.gameObject.GetComponent<Collider>() != null && !other.gameObject.GetComponent<PlayerProvider>())
             {
-
-
-                // other.GetComponent<CompositeMove>().RemoveUnit(other.GetComponent<Imove>());   
-               Destroy(other.gameObject);
-               // other.gameObject.SetActive(false);
+                if (other.gameObject.GetComponent<EnemyProvider>())
+                {
+                    if (other is Imoveble imoveble)
+                        imoveble.RemoveUnit(imoveble);
+                    Destroy(other.gameObject);
+                }
             }
         }
+
     }
-
 }
-

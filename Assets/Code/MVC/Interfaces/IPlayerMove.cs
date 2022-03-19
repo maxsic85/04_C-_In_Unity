@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace Max.Core
 {
-    public interface IPlayerMove : Imove
+    public interface IPlayerMove : Imoveble
     {
         event Action<float> OnStepNoizeChange;
     }

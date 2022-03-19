@@ -46,7 +46,7 @@ namespace Max.Meta
         }
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.GetComponent<Player>() != null)
+            if (other.gameObject.GetComponent<PlayerProvider>() != null)
             {
               //  var addComponent = gameObject.GetComponent<Boost>();
                 //addComponent._boostEvent += () =>

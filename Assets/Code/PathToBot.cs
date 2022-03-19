@@ -1,3 +1,4 @@
+using Labirint.View;
 using Max.Core;
 using System.Collections;
 using System.Collections.Generic;
@@ -27,7 +28,7 @@ public class PathToBot : MonoBehaviour
         for (var i = 0; i < _enemyProviders.Count; i++)
         {
             Gizmos.color = _lineColor;
-            Gizmos.DrawLine(_palyer.position, _enemyProviders[i].position);
+          //  Gizmos.DrawLine(_palyer.position, _enemyProviders[i].position);
 
         }
     }

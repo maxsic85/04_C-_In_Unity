@@ -11,6 +11,8 @@ namespace Labirint.Core
         [SerializeField] private InputData _inputData;
         [SerializeField] private MiniMapData _mapData;
         [SerializeField] private RadarData _radarData;
+    
+
         private ShuffleMapGeneretion _levelGenerator;
         void Start()
         {

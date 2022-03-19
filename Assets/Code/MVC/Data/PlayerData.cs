@@ -18,13 +18,13 @@ namespace Labirint.Data
         {
             _player = (GameObject)Resources.Load(_path);
         }
-        public Player GetPlayer()
+        public PlayerProvider GetPlayer()
         {
             if (_player == null)
             {
                 throw new InvalidOperationException($"Player type not found");
             }
-            return _player.GetComponent<Player>();
+            return _player.GetComponent<PlayerProvider>();
         }
 
         public GameObject PlayerOnSceene()
@@ -33,7 +33,7 @@ namespace Labirint.Data
             {
                 throw new InvalidOperationException($"Player type not found");
             }
-            return GameObject.FindObjectOfType<Player>().gameObject ;
+            return GameObject.FindObjectOfType<PlayerProvider>().gameObject ;
         }
     }
 }

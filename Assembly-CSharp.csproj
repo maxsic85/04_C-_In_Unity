@@ -58,10 +58,13 @@
   <ItemGroup>
     <Compile Include="Assets\Code\MVC\Interfaces\IPlayer.cs" />
     <Compile Include="Assets\Code\MVC\Radar\RadarProvider.cs" />
+    <Compile Include="Assets\Code\MVC\Controllers\PCInput.cs" />
     <Compile Include="Assets\Code\MVC\Interfaces\IFire.cs" />
     <Compile Include="Assets\Code\MVC\Controllers\GameStarter.cs" />
     <Compile Include="Assets\Code\MVC\Controllers\MapController.cs" />
     <Compile Include="Assets\Code\Generetion\Interfaces\IShuffleGeneretion.cs" />
+    <Compile Include="Assets\Code\MVC\Controllers\PlayerShootController.cs" />
+    <Compile Include="Assets\Code\MVC\Controllers\SaveController.cs" />
     <Compile Include="Assets\Code\MVC\Controllers\EnemyInitialisation.cs" />
     <Compile Include="Assets\Code\MVC\Enemies\EnemyProvider.cs" />
     <Compile Include="Assets\Code\Scriptable\RadarData.cs" />
@@ -71,6 +74,7 @@
     <Compile Include="Assets\Code\MVC\Boost\BoostFactory.cs" />
     <Compile Include="Assets\Code\Extenshion\Extenshion.cs" />
     <Compile Include="Assets\Code\MVC\Interfaces\IInitialisation.cs" />
+    <Compile Include="Assets\Code\MVC\Interfaces\IInput.cs" />
     <Compile Include="Assets\Code\MVC\SaveData\XMLData.cs" />
     <Compile Include="Assets\Code\MVC\Interfaces\IExecute.cs" />
     <Compile Include="Assets\Code\MVC\Interfaces\IBuilet.cs" />
@@ -78,19 +82,20 @@
     <Compile Include="Assets\Code\MVC\Controllers\RadarController.cs" />
     <Compile Include="Assets\Code\MVC\Builet\BuiletProvider.cs" />
     <Compile Include="Assets\Code\MVC\Radar\RadarObject.cs" />
-    <Compile Include="Assets\Code\MVC\Interfaces\Imove.cs" />
     <Compile Include="Assets\Code\MVC\Interfaces\IPlayerMove.cs" />
     <Compile Include="Assets\Code\MVC\Data\BoostData.cs" />
     <Compile Include="Assets\Code\MVC\VIEW\DisplayData.cs" />
     <Compile Include="Assets\Code\MVC\Controllers\DamageController.cs" />
     <Compile Include="Assets\Code\MVC\VIEW\TextData.cs" />
     <Compile Include="Assets\Code\MVC\VIEW\TextController.cs" />
+    <Compile Include="Assets\Code\MVC\Controllers\PlayerMoveController.cs" />
     <Compile Include="Assets\Code\Generetion\ShuffleArray.cs" />
     <Compile Include="Assets\Code\MVC\Interfaces\IDrawSectorVisibility.cs" />
     <Compile Include="Assets\Code\PathToBot.cs" />
     <Compile Include="Assets\Code\MVC\Enemies\EnemyMoveController.cs" />
     <Compile Include="Assets\Code\Generetion\Interfaces\IEnemyGeneretion.cs" />
     <Compile Include="Assets\Code\MVC\Controllers\PlayerMoveController2.cs" />
+    <Compile Include="Assets\Code\MVC\Controllers\InputController.cs" />
     <Compile Include="Assets\Code\Generetion\ShuffleMapGeneretion.cs" />
     <Compile Include="Assets\Code\MVC\Interfaces\IEnemyFactory.cs" />
     <Compile Include="Assets\Code\MVC\Enemies\CompositeMove.cs" />
@@ -98,6 +103,7 @@
     <Compile Include="Assets\Code\MVC\Controllers\BoostInitialisation.cs" />
     <Compile Include="Assets\Code\MVC\Interfaces\IController.cs" />
     <Compile Include="Assets\Code\MVC\Data\BuiletData.cs" />
+    <Compile Include="Assets\Code\CONSTANTS\GameConstants.cs" />
     <Compile Include="Assets\Code\MVC\Interfaces\IBuiletFactory.cs" />
     <Compile Include="Assets\Code\MVC\Enemies\EnemyFactory.cs" />
     <Compile Include="Assets\Code\MVC\VIEW\ITextaData.cs" />
@@ -110,7 +116,7 @@
     <Compile Include="Assets\Code\MVC\Player\PlayerFactory.cs" />
     <Compile Include="Assets\Code\MVC\Controllers\GameInitialisation.cs" />
     <Compile Include="Assets\Code\MVC\SaveData\SavedData.cs" />
-    <Compile Include="Assets\Code\MVC\Player\Player.cs" />
+    <Compile Include="Assets\Code\MVC\Player\PlayerProvider.cs" />
     <Compile Include="Assets\Code\MVC\Data\PlayerData.cs" />
     <Compile Include="Assets\Code\GizmosObjects.cs" />
     <Compile Include="Assets\Code\MVC\Interfaces\IBoostFactory.cs" />
@@ -123,13 +129,8 @@
     <Compile Include="Assets\Code\MVC\Interfaces\IPlayerFactory.cs" />
     <Compile Include="Assets\Code\MVC\Data\EnemyData.cs" />
     <Compile Include="Assets\Code\MVC\Boost\Boost.cs" />
-    <Compile Include="Assets\Code\CONSTANTS\GameConstants.cs" />
-    <Compile Include="Assets\Code\MVC\Interfaces\IInput.cs" />
-    <Compile Include="Assets\Code\MVC\Controllers\InputController.cs" />
-    <Compile Include="Assets\Code\MVC\Controllers\PCInput.cs" />
-    <Compile Include="Assets\Code\MVC\Controllers\PlayerMoveController.cs" />
-    <Compile Include="Assets\Code\MVC\Controllers\PlayerShootController.cs" />
-    <Compile Include="Assets\Code\MVC\Controllers\SaveController.cs" />
+    <Compile Include="Assets\Code\MVC\Interfaces\Imoveble.cs" />
+    <Compile Include="Assets\Code\MVC\Controllers\IMoveInitialising.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Tasks.txt" />
