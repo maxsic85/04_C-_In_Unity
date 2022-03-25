@@ -5,7 +5,7 @@ using UnityEngine;
 public class CreateWall : ScriptableWizard
 {
     [SerializeField] private Mesh _mesh;
-    [SerializeField] ShuffleMapGeneretion _levelGenerator;
+    [SerializeField] ShuffleMapGeneretionBeh _levelGenerator;
     [MenuItem("GameObject/Create Other/Wall")]
     static void CreateWizard()
     {
@@ -32,7 +32,7 @@ public class CreateWall : ScriptableWizard
 
         if (_levelGenerator == null)
         {
-            _levelGenerator = GameObject.FindObjectOfType<ShuffleMapGeneretion>();
+            _levelGenerator = GameObject.FindObjectOfType<ShuffleMapGeneretionBeh>();
             _levelGenerator.ClearEditor();
             _levelGenerator.GeneretMap();
         }

@@ -9,6 +9,5 @@ namespace Labirint.Constants
         public const float CAMERA_TRESH_TO_MOVE = 6f;
         public  const float CHECK_WALL_TRESH = 0.5f;
         public static Vector3 CAMERA_OFFSET = new Vector3(0, 2, -0);
-
     }
 }

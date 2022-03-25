@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7145653950850599807}
   - component: {fileID: 433863941188060615}
-  - component: {fileID: 2302535071099442432}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MiniMap
@@ -31,7 +30,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 90}
 --- !u!20 &433863941188060615
 Camera:
   m_ObjectHideFlags: 0
@@ -63,7 +62,7 @@ Camera:
   m_Depth: -2
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 129
+    m_Bits: 193
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 5ddb17c53b79d1a4197966651f81d008, type: 2}
   m_TargetDisplay: 0
@@ -75,11 +74,3 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &2302535071099442432
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4980681153161861235}
-  m_Enabled: 1

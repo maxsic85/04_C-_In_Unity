@@ -1,4 +1,4 @@
-namespace Max.Generetion
+namespace Labirint.Generation
 {
     internal static class ShuffleArray
     {
@@ -12,7 +12,6 @@ namespace Max.Generetion
                 array[_rndIndex] = array[i];
                 array[i] = _tempItem;
             }
-
             return array;
         }
     }

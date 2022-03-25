@@ -1,28 +1,26 @@
-using Labirint.Generation;
 using UnityEditor;
 
-namespace Max.Generetion
+namespace Labirint.Generation
 {
-    [CustomEditor(typeof(ShuffleMapGeneretion))]
+    [CustomEditor(typeof(ShuffleMapGeneretionBeh))]
     public class MapEditor : Editor
     {
         public override void OnInspectorGUI()
         {
-            ShuffleMapGeneretion map = target as ShuffleMapGeneretion;
+            ShuffleMapGeneretionBeh map = target as ShuffleMapGeneretionBeh;
             base.OnInspectorGUI();
-      
 
-            if (map._genereteInInspector)
+            if (map._doGenereteInInspector)
             {
                 map.GeneretMap();
-                
-                map._genereteInInspector = !map._genereteInInspector;
+
+                map._doGenereteInInspector = !map._doGenereteInInspector;
             }
 
-            else if(map._clearMap && !map._genereteInInspector)
+            else if (map._doClearMap && !map._doGenereteInInspector)
             {
                 map.ClearEditor();
-                map._clearMap = !map._clearMap;
+                map._doClearMap = !map._doClearMap;
             }
         }
     }
