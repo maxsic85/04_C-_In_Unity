@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.AI;
 
 namespace Labirint.Generation
 {
@@ -20,7 +21,6 @@ namespace Labirint.Generation
         private Queue<Coord> _shuffledCoords;
         private Queue<Coord> _freeShuffledCoords;
         private List<Coord> _freeCoord;
-        private List<Transform> _obtacle;
         private List<GameObject> _map;
         private Map _currentMap;
         private Transform[,] _tileMap;
@@ -34,7 +34,6 @@ namespace Labirint.Generation
             _tileMap = new Transform[_currentMap._mapSize.x, _currentMap._mapSize.y];
             _freeCoord = _allTileCoords;
             _map = new List<GameObject>();
-            VectorMapStart = CoordToPosition(0, 0);
             SetParentHolder();
             SetBoardObtacle();
             GenerationCord();
@@ -42,7 +41,8 @@ namespace Labirint.Generation
             SpawnTile(_mapHolder);
             SpawnObtacle(_mapHolder);
             _freeShuffledCoords = new Queue<Coord>(ShuffleArray.Shuffle(_freeCoord.ToArray(), _currentMap._seed));
-            GetOutput();
+            VectorMapStart = GetRandomOpenTile().position;
+            SetOutputFromLabirint();
         }
 
         private void SetBoardObtacle()
@@ -68,26 +68,22 @@ namespace Labirint.Generation
                         _mapBorder.Add(_newObstacle);
                     }
                 }
-
             }
-
         }
-
-        private void GetOutput()
+        private void SetOutputFromLabirint()
         {
             var random = new System.Random();
-            var index = random.Next(0, _mapBorder.Count-1);
+            var index = random.Next(0, _mapBorder.Count - 1);
             var selectedBorder = _mapBorder[index].gameObject.transform.position;
 
             if ((selectedBorder.x == (_currentMap._mapSize.x / 2 + 0.5) || selectedBorder.x == (-_currentMap._mapSize.x / 2 - 0.5)) &&
                 (selectedBorder.z == (_currentMap._mapSize.y / 2 - 0.5) || selectedBorder.z == (_currentMap._mapSize.y + _currentMap._mapSize.y / 2) + 0.5))
             {
-                GetOutput();
+                SetOutputFromLabirint();
                 return;
             }
-
             foreach (var obtacle in from obtacle in _map
-                                    where obtacle.layer == LayerMask.NameToLayer("Wall")
+                                    where obtacle.GetComponent<NavMeshObstacle>()
                                     select obtacle)
             {
                 for (var x = selectedBorder.x - 1; x <= selectedBorder.x + 1; x++)
@@ -96,8 +92,7 @@ namespace Labirint.Generation
                     {
                         if (x == obtacle.transform.position.x && z == obtacle.transform.position.z)
                         {
-                            Debug.Log(obtacle.transform.position);
-                            GetOutput();
+                            SetOutputFromLabirint();
                             return;
                         }
                     }
@@ -128,8 +123,6 @@ namespace Labirint.Generation
                 if (_randomCoord != _currentMap._mapCenter && _randomCoord != _currentMap._mapStart && MapIsFullAccesible(_obstacleMap, _currentObstacleCount))
                 {
                     Vector3 _obtaclePosition = CoordToPosition(_randomCoord.x, _randomCoord.y);
-                    //
-
                     Transform _newObstacle = Instantiate(_obstaclePreefab, _obtaclePosition + Vector3.up * 0.5f, Quaternion.identity) as Transform;
                     _newObstacle.parent = _mapHolder;
                     _map.Add(_newObstacle.gameObject);

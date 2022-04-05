@@ -1,4 +1,4 @@
-namespace Labirint.Core
+namespace Labirint.Player
 {
     public sealed class PlayerInitialisation 
     {

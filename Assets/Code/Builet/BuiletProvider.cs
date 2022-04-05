@@ -1,5 +1,4 @@
 ﻿using Labirint.Core;
-using Labirint.View;
 using UnityEngine;
 
 namespace Labirint.Bullet
@@ -16,6 +15,7 @@ namespace Labirint.Bullet
                         imoveble.RemoveUnit(imoveble);
                     Destroy(other.gameObject);
                 }
+                Destroy(gameObject);
             }
         }
 

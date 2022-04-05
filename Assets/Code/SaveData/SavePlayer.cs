@@ -33,7 +33,7 @@ namespace Labirint.Save
             };
 
             _data.Save(saveData, Path.Combine(_path, _fileName));
-            Debug.Log("Save");
+
         }
 
         public void LoadPlayerPosition(Vector3 player)

@@ -8,12 +8,13 @@ namespace Labirint.Save
         public ISavePlayerPosition _saveDataPosition;
         private readonly InputController _inputController;
         private Transform _playerTransform;
-        public SaveController(ISavePlayerPosition save, InputController inputController, Transform playerTransform)
+        public SaveController(ISavePlayerPosition save, InputController inputController, Transform playerTransform, SaveView saveView)
         {
             _saveDataPosition = save;
             _inputController = inputController;
             _playerTransform = playerTransform;
             save.OnLoadPosition += LoadPosition;
+            save.OnLoadPosition += saveView.ShowInfoAboutLoad;
         }
 
         public void Execute(float deltaTime)

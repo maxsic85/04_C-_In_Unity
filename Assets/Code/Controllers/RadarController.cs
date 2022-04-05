@@ -14,22 +14,22 @@ namespace Labirint.Core
             _data = data;
             _player = player;
         }
-        public static void RegisterRadarObject(GameObject o, Image i)
+        public static void RegisterRadarObject(GameObject gameObj, Image RegImage)
         {
-            Image image = Object.Instantiate(i);
-            RadObjects.Add(new RadarObject { Owner = o, Icon = image });
+            Image image = Object.Instantiate(RegImage);
+            RadObjects.Add(new RadarObject { Owner = gameObj, Icon = image });
         }
-        public static void RemoveRadarObject(GameObject o)
+        public static void RemoveRadarObject(GameObject gameObj)
         {
             List<RadarObject> newList = new List<RadarObject>();
-            foreach (RadarObject t in RadObjects)
+            foreach (RadarObject radar in RadObjects)
             {
-                if (t.Owner == o)
+                if (radar.Owner == gameObj)
                 {
-                    Object.Destroy(t.Icon);
+                    Object.Destroy(radar.Icon);
                     continue;
                 }
-                newList.Add(t);
+                newList.Add(radar);
             }
             RadObjects.RemoveRange(0, RadObjects.Count);
             RadObjects.AddRange(newList);

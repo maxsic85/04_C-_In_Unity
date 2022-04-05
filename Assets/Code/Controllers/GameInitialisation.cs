@@ -7,6 +7,7 @@ using Labirint.Data;
 using Labirint.Save;
 using Labirint.Boost;
 using Labirint.Bullet;
+using Labirint.Player;
 
 namespace Labirint.Core
 {
@@ -17,7 +18,8 @@ namespace Labirint.Core
                                   MiniMapData mapdata,
                                   RadarData radarData,
                                   IMapGeneretion levelGenerator,
-                                  Camera camera)
+                                  Camera camera,
+                                  SaveView saveView)
         {
             PlayerData dataPlayer = new PlayerData();
             EnemyData dataEnemy = new EnemyData();
@@ -51,8 +53,8 @@ namespace Labirint.Core
 
             var bulletFactory = new BuiletFactory(fireData);
             var playerShootController = new PlayerShootController(inputController, fireData, bulletFactory, player);
-
-            var saveController = new SaveController(_savePlayerPosition, inputController, player);
+           
+            var saveController = new SaveController(_savePlayerPosition, inputController, player, saveView);
 
 
             _controllers.Add(cameraController);
@@ -60,7 +62,6 @@ namespace Labirint.Core
             _controllers.Add(playerShootController);
             _controllers.Add(saveController);
             _controllers.Add(enemyMoveController);
-          //  _controllers.Add(new DamageController(10, player.gameObject));
             _controllers.Add(new MapController(mapdata, player));
             _controllers.Add(new RadarController(radarData, player));
             _controllers.Add(new TextController(dataPlayer, text));

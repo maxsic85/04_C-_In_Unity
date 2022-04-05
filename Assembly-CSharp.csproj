@@ -86,7 +86,6 @@
     <Compile Include="Assets\Code\Data\BoostData.cs" />
     <Compile Include="Assets\Code\Interfaces\Imoveble.cs" />
     <Compile Include="Assets\Code\VIEW\DisplayData.cs" />
-    <Compile Include="Assets\Code\Controllers\DamageController.cs" />
     <Compile Include="Assets\Code\VIEW\TextData.cs" />
     <Compile Include="Assets\Code\VIEW\TextController.cs" />
     <Compile Include="Assets\Code\Controllers\PlayerMoveController.cs" />
@@ -99,11 +98,12 @@
     <Compile Include="Assets\Code\Generetion\ShuffleMapGeneretionBeh.cs" />
     <Compile Include="Assets\Code\Interfaces\IEnemyFactory.cs" />
     <Compile Include="Assets\Code\Enemies\CompositeMove.cs" />
-    <Compile Include="Assets\Code\VIEW\DisplayEvvents.cs" />
+    <Compile Include="Assets\Code\VIEW\Displayvents.cs" />
     <Compile Include="Assets\Code\Controllers\BoostInitialisation.cs" />
     <Compile Include="Assets\Code\Interfaces\IController.cs" />
     <Compile Include="Assets\Code\Data\BuiletData.cs" />
     <Compile Include="Assets\Code\CONSTANTS\GameConstants.cs" />
+    <Compile Include="Assets\Code\Generetion\Coord.cs" />
     <Compile Include="Assets\Code\Interfaces\IBuiletFactory.cs" />
     <Compile Include="Assets\Code\Enemies\EnemyFactory.cs" />
     <Compile Include="Assets\Code\VIEW\ITextaData.cs" />
@@ -115,6 +115,7 @@
     <Compile Include="Assets\Code\Radar\RadarMarker.cs" />
     <Compile Include="Assets\Code\Controllers\CameraController.cs" />
     <Compile Include="Assets\Code\Player\PlayerFactory.cs" />
+    <Compile Include="Assets\Code\Generetion\Map.cs" />
     <Compile Include="Assets\Code\Controllers\GameInitialisation.cs" />
     <Compile Include="Assets\Code\SaveData\SavedData.cs" />
     <Compile Include="Assets\Code\Player\PlayerProvider.cs" />
@@ -128,9 +129,8 @@
     <Compile Include="Assets\Code\Interfaces\IDamageble.cs" />
     <Compile Include="Assets\Code\Interfaces\IPlayerFactory.cs" />
     <Compile Include="Assets\Code\Data\EnemyData.cs" />
-    <Compile Include="Assets\Code\Boost\BoostBeh.cs" />
-    <Compile Include="Assets\Code\Generetion\Coord.cs" />
-    <Compile Include="Assets\Code\Generetion\Map.cs" />
+    <Compile Include="Assets\Code\Boost\BosstProvider.cs" />
+    <Compile Include="Assets\Code\SaveData\SaveView.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Tasks.txt" />
